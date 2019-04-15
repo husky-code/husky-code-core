@@ -4,7 +4,9 @@ function load() {
 	http.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			var json = JSON.parse(this.responseText);
-			document.getElementById("anchor").innerHTML = json.origin + "\n" + json.url;
+			document.getElementById("anchor").innerHTML = "Origin: " + json.origin + "\nURL: " + json.url + "\nDnt: " + json.headers.Dnt;
+		} else {
+			document.getElementById("anchor").innerHTML = "Could not connect to server.";
 		}
 	};
 	http.open("GET", url, true);
