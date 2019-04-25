@@ -16,6 +16,9 @@ html body {
 	text-align: center;
 }
 .banner {
-	width: 100%;
 	height: 15.625em;
+}
+.col-lg-12 {
+	background-color: white;
+	text-align: center;
 }
