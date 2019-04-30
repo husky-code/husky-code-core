@@ -1,110 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Husky Code</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- import the webpage's stylesheet -->
-      <link rel="stylesheet" type="text/css" href="./styles/style.css">
-      <!-- import font awesome CDN -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-      <!-- import the webpage's javascript file -->
-      <script src="./scripts/script.js" defer></script>
-   </head>
-   <body>
-      <div class="layout">
-         <!-- The top header -->
-         <div class="header">
-            <div class="navbar-container">
+<head>
+	<title>Husky Code</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <!-- import font awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- import the webpage's javascript file -->
+    <script src="./scripts/handlers/tabhandler.js"></script>
+</head>
+<body>
+	<div class="layout">
+        <!-- The top header -->
+		<div class="header">
+			<div class="navbar-container">
                <!-- The block on the left of the header -->
-               <div class="navbar-left-container">
-                  <div class="navbar-item-container">
-                     <img id="husky-code-icon" src="./images/husky_code_icon.JPG">
-                  </div>
-                  <div class="navbar-item-container">
+            	<div class="navbar-left-container">
+                	<div class="navbar-item-container">
+                    	<img src="./images/husky_code_icon.JPG">
+					</div>
+                	<div class="navbar-item-container">
                      <a id="nav-title">Husky Code</a>
-                  </div>
-               </div>
+					</div>
+				</div>
                <!-- The block on the right of the header -->
-               <div class="navbar-right-container">
-                  <div class="navbar-item-container">
-                     <img id="user-icon" src="./images/user_icon_template.JPG">
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Dashboard</a>
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Interview Prep</a>
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Discussion</a>
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Problems</a>
-                  </div>
-               </div>
-            </div>
+				<div class="navbar-right-container">
+                  	<div class="navbar-item-container">
+                     	<img src="./images/user_icon_template.JPG">
+                  	</div>
+                  	<div class="navbar-item-container">
+                     	<a class="nav-item">Dashboard</a>
+                  	</div>
+                  	<div class="navbar-item-container">
+                    	<a class="nav-item">Interview Prep</a>
+                  	</div>
+                  	<div class="navbar-item-container">
+                    	<a class="nav-item">Discussion</a>
+                  	</div>
+                  	<div class="navbar-item-container">
+                    	<a class="nav-item">Problems</a>
+                	</div>
+				</div>
+        	</div>
+        </div>
+        <div class="select-bar-container">
+            <select class="select-text-indent">
+        		<option value="">Midterm Spring '09</option>
+            	<option value="">Midterm Spring '10</option>
+                <option value="">Midterm Spring '11</option>
+                <option value="">Midterm Spring '12</option>
+            </select>
          </div>
-         <!-- This part is the main contain -->
-         <div class="content-container">
-            <!-- This is the left side of the main content -->
-            <div class="question-info-container">
-               <div class="select-bar-container">
-                  <select>
-                     <option value="">Midterm Spring '09</option>
-                     <option value="">Midterm Spring '10</option>
-                     <option value="">Midterm Spring '11</option>
-                     <option value="">Midterm Spring '12</option>
-                  </select>
-               </div>
-
-               <div class="question-header-container">
-                  <div class="question-title-container">
-                     <div class="question-name-container">
-                        <a id="question-name">favoriteLetter</a>
-                     </div>
-                     <div class="question-diffculty">
-                        <a id="question-difficulty">Diffculty: EASY</a>
-                     </div>
-                     <div class="question-conpletion">
-                     </div>
-                  </div>
-                  <div class="question-subject-container">
-                     <!-- TODO: subject categories -->
-                  </div>
-                  <div class="question-author-container">
-                     <div>
-                        <a href="" id="question-author"> </a>
-                     </div>
-                     <div>
-                        <a href="" id="question-time"> </a>
-                     </div>
-                  </div>
-               </div>
-               <div class="question-content-container">
-                  <div class="question-description-container">
-                  </div>
-                  <div class="tab-footer-container">
-                     <div class="tab">
-                     </div>
-                     <div class="tab">
-                     </div>
-                     <div class="tab">
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="interaction-container">
-               <div class="tab-header-container">
-                  <!-- TODO -->
-               </div>
-               <div class="code-editor-container">
-                  <!-- TODO: text editor -->
-               </div>
-               <div class="footer-container">
-               </div>
-            </div>
-         </div>
+        <nav>
+			<ul class="navbar-no-vertical-margin">
+        		<li><button class="styled-btn" onclick="switchTab('mycode')">My Code</button></li>
+        		<li><button class="styled-btn" onclick="switchTab('discussion')">Discussion</button></li>
+        		<li><button class="styled-btn" onclick="switchTab('solutions')">Solutions</button></li>
+        		<li><button class="styled-btn" onclick="switchTab('timer')">Timer</button></li>
+      		</ul>
+		</nav>
+        <iframe id="window" src="./pages/mycode.html" scrolling="no"></iframe>
       </div>
-   </body>
+</body>
 </html>

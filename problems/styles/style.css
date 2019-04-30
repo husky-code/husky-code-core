@@ -36,6 +36,12 @@ a {
    margin-top: 0.5em;
    margin-bottom: 0.5em;
    height: 2.5em;
+   font-size: 14px;
+}
+
+.navbar-container .navbar-item-container img {
+	height: 100%;
+	width: 2.5em;
 }
 
 .navbar-left-container .navbar-item-container{
@@ -55,42 +61,23 @@ a {
 
 .navbar-container img {
    height: 100%;
-   wideth: 100%;
+   width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.body-no-margin {
+	margin: 0;
+}
 
 .content-container {
-   background-color: purple;
    height: 600px;
 }
 
 
 .question-info-container {
    float: left;
-   background-color: yellow;
-   width: 44%;
+   border-right: 1px solid black;
+   background-color: white;
+   width: 37.5%;
    height: 1000px;
 }
 
@@ -110,22 +97,18 @@ a {
 
 .select-bar-container {
    width: 100%;
-   background-color: green;
-   margin-bottom: 3em;
+   margin-bottom: 0em;
 }
 
 .interaction-container {
    float: right;
-   background-color: gray;
    width: 54%;
    height: 1000px;
 }
 
-
 body, select {
   font-family: 'Nunito Sans', sans-serif;
 }
-
 
 option span {
   margin-right: 50px;
@@ -142,15 +125,61 @@ select {
   text-overflow: '';
 }
 
+select.select-text-indent {
+  text-indent: 25px;
+}
 
 #nav-title {
    font-size: 29px;
-   font-weight: 900;
-   text-shadow:1px 0 0 currentColor, -1px 0 0 currentColor;
+   font-weight: 1000;
+   text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+   height: 100%;
+   margin: 0;
 }
 
 #question-name {
    font-size: 24px;
    font-weight: 900;
-   text-shadow:0.5px 0 0 currentColor, -1px 0 0 currentColor;
+   text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+}
+#window {
+  border: 1px solid black; /* temporary */
+  height: 30em;
+  width: 100%;
+}
+
+nav, nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style-type: none;
+  margin-left: auto;
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 35px;
+}
+
+nav ul.navbar-no-vertical-margin li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.navbar-no-vertical-margin {
+  float: right;
+  margin: 0px 0px 0px 65%;
+}
+
+.styled-btn {
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.styled-btn:focus {
+  outline: 0;
 }
