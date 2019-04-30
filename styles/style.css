@@ -142,6 +142,11 @@ select.select-text-indent {
    font-weight: 900;
    text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
 }
+
+#question-completion {
+	margin: 10px 0px 0px 75%;
+}
+
 #window {
   border: 1px solid black; /* temporary */
   height: 30em;
