@@ -1,0 +1,156 @@
+/* CSS files add styling rules to your content */
+/* import nunito sans font (substitute for Avenir) */
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+body {
+  margin: 30px 50px;
+}
+
+a {
+   display: block;
+}
+
+.layout {
+   height: 1000px;
+}
+
+.header {
+   height: 5em;
+}
+
+.header > div {
+   font-size: 1.5em;
+}
+
+.navbar-right-container {
+   float: right;
+   width: 60%;
+}
+
+.navbar-left-container {
+   float: left;
+   width: 30%;
+}
+
+.navbar-item-container {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+   height: 2.5em;
+}
+
+.navbar-left-container .navbar-item-container{
+   float: left;
+   margin-right: 10%;
+}
+
+.navbar-right-container .navbar-item-container{
+   float: right;
+   margin-left: 5%;
+}
+
+.navbar-container a {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+}
+
+.navbar-container img {
+   height: 100%;
+   wideth: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content-container {
+   background-color: purple;
+   height: 600px;
+}
+
+
+.question-info-container {
+   float: left;
+   background-color: yellow;
+   width: 44%;
+   height: 1000px;
+}
+
+.question-header-container {
+   margin-left: 2em;
+   margin-bottom: 1em;
+   background-color: white;
+}
+
+.question-header-container > div {
+   margin-bottom: 1em;
+}
+
+.question-title-container > div {
+   width: auto;
+}
+
+.select-bar-container {
+   width: 100%;
+   background-color: green;
+   margin-bottom: 3em;
+}
+
+.interaction-container {
+   float: right;
+   background-color: gray;
+   width: 54%;
+   height: 1000px;
+}
+
+
+body, select {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+
+option span {
+  margin-right: 50px;
+}
+
+select {
+  border-color: black;
+  border-radius: 10px;
+  height: 42px;
+  width: 150px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+
+#nav-title {
+   font-size: 29px;
+   font-weight: 900;
+   text-shadow:1px 0 0 currentColor, -1px 0 0 currentColor;
+}
+
+#question-name {
+   font-size: 24px;
+   font-weight: 900;
+   text-shadow:0.5px 0 0 currentColor, -1px 0 0 currentColor;
+}
