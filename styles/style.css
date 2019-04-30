@@ -116,8 +116,8 @@ option span {
 
 select {
   border-color: black;
-  border-radius: 10px;
-  height: 42px;
+  border-radius: 5px;
+  height: 30px;
   width: 150px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -168,14 +168,14 @@ nav ul.navbar-no-vertical-margin li:not(:last-child) {
 
 .navbar-no-vertical-margin {
   float: right;
-  margin: 0px 0px 0px 65%;
+  margin: 0px 0px 0px 70%;
 }
 
 .styled-btn {
   border: none;
   color: black;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 400;
   text-decoration: none;
 }
