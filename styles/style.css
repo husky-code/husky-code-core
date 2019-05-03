@@ -74,9 +74,9 @@ a {
 
 
 .question-info-container {
-   float: left;
    border-right: 1px solid black;
    background-color: white;
+   float: left;
    width: 37.5%;
    height: 1000px;
 }
@@ -103,7 +103,7 @@ a {
 .interaction-container {
    float: right;
    width: 54%;
-   height: 1000px;
+   height: 30em;
 }
 
 body, select {
@@ -149,6 +149,7 @@ select.select-text-indent {
 
 #window {
   border: 1px solid black; /* temporary */
+  float: left;
   height: 30em;
   width: 100%;
 }
