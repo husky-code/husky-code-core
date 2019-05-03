@@ -1,5 +1,27 @@
-# Welcome to UW Husky Code!
+Welcome to Glitch
+=================
 
-Husky Code is our attempt at creating an open source, member-driven (and prettier) version of UW's PracticeIt. The idea is to take features we like from HackerRank, LeetCode, etc., and implement it on our product. We are planning on creating a full scale web application, so you can imagine we'd need any willing hands on deck. Whether you're a database expert or are just looking to play with any aspect of web development, you are in the right place! 
+Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
 
-We will be meeting weekly during Spring Quarter on **Friday's at 10:30am** in CSE 303, so feel free to show up to a meeting and get to know the team!
+**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+
+Find out more [about Glitch](https://glitch.com/about).
+
+
+Your Project
+------------
+
+On the front-end,
+- edit `public/client.js`, `public/style.css` and `views/index.html`
+- drag in `assets`, like images or music, to add them to your project
+
+On the back-end,
+- your app starts at `server.js`
+- add frameworks and packages in `package.json`
+- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+
+
+Made by [Glitch](https://glitch.com/)
+-------------------
+
+\ ゜o゜)ノ
