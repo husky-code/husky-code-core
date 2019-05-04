@@ -2,16 +2,56 @@
 /* import nunito sans font (substitute for Avenir) */
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
 
-body {
-  margin: 30px 50px;
-}
-
 a {
    display: block;
 }
 
-.layout {
-   height: 1000px;
+body {
+  margin: 30px 50px;
+}
+
+body, select, input {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+nav, nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style-type: none;
+  margin-left: auto;
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 35px;
+}
+
+nav ul.navbar-no-vertical-margin li:not(:last-child) {
+  margin-right: 20px;
+}
+
+option span {
+  margin-right: 50px;
+}
+
+select {
+  border-color: black;
+  border-radius: 5px;
+  height: 40px;
+  width: 200px;
+  text-indent: 40px;
+  font-size: 15px;
+}
+
+.body-no-margin {
+   margin: 0;
+   height: 2000px;
+}
+
+.content-container {
+   height: 100%;
 }
 
 .header {
@@ -22,36 +62,19 @@ a {
    font-size: 1.5em;
 }
 
-.navbar-right-container {
+.iframe-container {
+   height: 1000px;
+}
+
+.interaction-container {
+   border: 1px solid #DDDDDD;
    float: right;
-   width: 60%;
+   width: 54%;
+   height: 20%;
 }
 
-.navbar-left-container {
-   float: left;
-   width: 30%;
-}
-
-.navbar-item-container {
-   margin-top: 0.5em;
-   margin-bottom: 0.5em;
-   height: 2.5em;
-   font-size: 20px;
-}
-
-.navbar-container .navbar-item-container img {
-	height: 100%;
-	width: 2.5em;
-}
-
-.navbar-left-container .navbar-item-container{
-   float: left;
-   margin-right: 10%;
-}
-
-.navbar-right-container .navbar-item-container{
-   float: right;
-   margin-left: 5%;
+.layout {
+   height: 1000px;
 }
 
 .navbar-container a {
@@ -64,24 +87,41 @@ a {
    width: 100%;
 }
 
-.iframe-container {
-   height: 1000px;
-}
-
-.body-no-margin {
-	margin: 0;
-   height: 2000px;
-}
-
-.content-container {
+.navbar-container .navbar-item-container img {
    height: 100%;
+   width: 2.5em;
 }
 
-.question-info-container {
-   background-color: white;
+.navbar-item-container {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+   height: 2.5em;
+   font-size: 20px;
+}
+
+.navbar-left-container {
    float: left;
-   width: 37.5%;
-   height: 1000px;
+   width: 30%;
+}
+
+.navbar-left-container .navbar-item-container {
+   float: left;
+   margin-right: 10%;
+}
+
+.navbar-no-vertical-margin {
+  float: right;
+  margin: 0px 0px 0px 70%;
+}
+
+.navbar-right-container {
+   float: right;
+   width: 60%;
+}
+
+.navbar-right-container .navbar-item-container {
+   float: right;
+   margin-left: 5%;
 }
 
 .question-header-container {
@@ -94,6 +134,13 @@ a {
 	margin-bottom: 1em;
 }
 
+.question-info-container {
+   background-color: white;
+   float: left;
+   width: 37.5%;
+   height: 1000px;
+}
+
 .question-title-container > div {
    width: auto;
 }
@@ -101,25 +148,6 @@ a {
 .select-bar-container {
    width: 100%;
    margin-bottom: 0em;
-}
-
-.interaction-container {
-   border: 1px solid #DDDDDD;
-   float: right;
-   width: 54%;
-   height: 20%;
-}
-
-.switch-tab-container {
-   width: 100%
-   margin-bottom: 0em;
-   padding-right: 0em;
-   height: 30px
-}
-
-.switch-tab-item-container {
-   float: right;
-   margin-left: 0.5em;
 }
 
 .switch-tab {
@@ -138,21 +166,16 @@ a {
 	outline: 0;
 }
 
-body, select, input {
-  font-family: 'Nunito Sans', sans-serif;
+.switch-tab-container {
+   width: 100%
+   margin-bottom: 0em;
+   padding-right: 0em;
+   height: 30px
 }
 
-option span {
-  margin-right: 50px;
-}
-
-select {
-  border-color: black;
-  border-radius: 5px;
-  height: 40px;
-  width: 200px;
-  text-indent: 40px;
-  font-size: 15px;
+.switch-tab-item-container {
+   float: right;
+   margin-left: 0.5em;
 }
 
 #nav-title {
@@ -178,27 +201,4 @@ select {
   float: left;
   height: 30em;
   width: 100%;
-}
-
-nav, nav ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-nav ul {
-  list-style-type: none;
-  margin-left: auto;
-}
-
-nav ul li:not(:last-child) {
-  margin-right: 35px;
-}
-
-nav ul.navbar-no-vertical-margin li:not(:last-child) {
-  margin-right: 20px;
-}
-
-.navbar-no-vertical-margin {
-  float: right;
-  margin: 0px 0px 0px 70%;
 }
