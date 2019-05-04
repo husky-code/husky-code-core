@@ -36,7 +36,7 @@ a {
    margin-top: 0.5em;
    margin-bottom: 0.5em;
    height: 2.5em;
-   font-size: 14px;
+   font-size: 20px;
 }
 
 .navbar-container .navbar-item-container img {
@@ -64,17 +64,20 @@ a {
    width: 100%;
 }
 
+.iframe-container {
+   height: 1000px;
+}
+
 .body-no-margin {
 	margin: 0;
+   height: 2000px;
 }
 
 .content-container {
-   height: 600px;
+   height: 100%;
 }
 
-
 .question-info-container {
-   border-right: 1px solid black;
    background-color: white;
    float: left;
    width: 37.5%;
@@ -101,12 +104,35 @@ a {
 }
 
 .interaction-container {
+   border: 2px solid #DDDDDD;
    float: right;
    width: 54%;
-   height: 30em;
+   height: 20%;
 }
 
-body, select {
+.switch-tab-container {
+   width: 100%
+   margin-bottom: 0em;
+   padding-right: 0em;
+   height: 30px
+}
+
+.switch-tab-item-container {
+   float: right;
+   margin-left: 0.5em;
+}
+
+.switch-tab {
+   border: none;
+   border-left: 2px solid black;
+   border-right: 2px solid black;
+   border-top: 2px solid black;
+   background-color: white;
+   height: 30px;
+   width: 120px;
+}
+
+body, select, input {
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -117,16 +143,10 @@ option span {
 select {
   border-color: black;
   border-radius: 5px;
-  height: 30px;
-  width: 150px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: '';
-}
-
-select.select-text-indent {
-  text-indent: 25px;
+  height: 40px;
+  width: 200px;
+  text-indent: 40px;
+  font-size: 15px;
 }
 
 #nav-title {
@@ -148,7 +168,7 @@ select.select-text-indent {
 }
 
 #window {
-  border: 1px solid black; /* temporary */
+   border: none;
   float: left;
   height: 30em;
   width: 100%;
