@@ -132,6 +132,10 @@ a {
    width: 120px;
 }
 
+.switch-tab:focus {
+	outline: 0;
+}
+
 body, select, input {
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -195,17 +199,4 @@ nav ul.navbar-no-vertical-margin li:not(:last-child) {
 .navbar-no-vertical-margin {
   float: right;
   margin: 0px 0px 0px 70%;
-}
-
-.styled-btn {
-  border: none;
-  color: black;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 400;
-  text-decoration: none;
-}
-
-.styled-btn:focus {
-  outline: 0;
 }
