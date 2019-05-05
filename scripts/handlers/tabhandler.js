@@ -1,10 +1,8 @@
-window.onload=function(){
+window.onload=function() {
    var mycode = document.getElementById('tab-mycode');
 	mycode.style.backgroundColor = 'black';
 	mycode.style.color = 'white';
 }
-
-
 
 function switchTab(tab) {
 	// parse tab id, switch to that tab's content
