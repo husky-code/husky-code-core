@@ -41,8 +41,11 @@ select {
   border-radius: 5px;
   height: 40px;
   width: 200px;
-  text-indent: 40px;
+  text-indent: 50px;
   font-size: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-overflow: '';
 }
 
 .body-no-margin {
@@ -106,7 +109,7 @@ select {
 
 .navbar-left-container .navbar-item-container {
    float: left;
-   margin-right: 10%;
+   margin-right: 5%;
 }
 
 .navbar-no-vertical-margin {
@@ -176,6 +179,23 @@ select {
 .switch-tab-item-container {
    float: right;
    margin-left: 0.5em;
+}
+
+#dropdown-menu {
+  position: relative;
+}
+
+#hambuger-icon {
+  position: absolute;
+  width: 24px;
+  left: 10px;
+  height: 24px;
+  top: 8px;
+}
+
+#husky-icon {
+  position: relative;
+  top: -10px;
 }
 
 #nav-title {
