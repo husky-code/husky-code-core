@@ -1,76 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Husky Code</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- import the webpage's stylesheet -->
-      <link rel="stylesheet" type="text/css" href="./styles/style.css">
-      <!-- import font awesome CDN -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-      <!-- import the webpage's javascript file -->
-      <script src="./scripts/handlers/tabhandler.js"></script>
-   </head>
-   <body>
-      <div class="layout">
-         <!-- The top header -->
-         <div class="header">
-            <div class="navbar-container">
-               <!-- The block on the left of the header -->
-               <div class="navbar-left-container">
-                  <div class="navbar-item-container">
-                     <img src="./images/husky_code_icon.JPG">
-                  </div>
-                  <div class="navbar-item-container">
-                     <a id="nav-title">Husky Code</a>
-                  </div>
-               </div>
-               <!-- The block on the right of the header -->
-               <div class="navbar-right-container">
-                  <div class="navbar-item-container">
-                     <img src="./images/user_icon_template.JPG">
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Dashboard</a>
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Interview Prep</a>
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Discussion</a>
-                  </div>
-                  <div class="navbar-item-container">
-                     <a class="nav-item">Problems</a>
-                  </div>
-               </div>
+  <head>
+    <title>Husky Code</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <!-- import font awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- import the webpage's javascript file -->
+    <script src="./scripts/handlers/tabhandler.js"></script>
+  </head>
+  <body>
+    <div class="layout">
+      <!-- The top header -->
+      <div class="header">
+        <div class="navbar-container">
+          <!-- The block on the left of the header -->
+          <div class="navbar-left-container">
+            <div class="navbar-item-container">
+              <img src="./images/husky_code_icon.JPG" alt="husky-icon" id="husky-icon">
             </div>
-         </div>
-         <div class="select-bar-container">
-            <select class="select-text-indent">
-            	<!-- TODO <img src="./images/menubaricon.png" class="navbar-item-container"> -->
-        		<option value="">Midterm Spring '09</option>
-            	<option value="">Midterm Spring '10</option>
-                <option value="">Midterm Spring '11</option>
-                <option value="">Midterm Spring '12</option>
-            </select>
-         </div>
-			<div class="switch-tab-container">
-				<div class="switch-tab-item-container">
-					<input class="switch-tab" id="tab-timer" type=button onclick="switchTab('timer')" value="Timer">
-				</div>
-				<div class="switch-tab-item-container">
-					<input class="switch-tab" id="tab-solutions" type=button onclick="switchTab('solutions')" value="Solutions">
-				</div>
-				<div class="switch-tab-item-container">
-					<input class="switch-tab" id="tab-discussions" type=button onclick="switchTab('discussions')" value="Discussion">
-				</div>
-				<div class="switch-tab-item-container">
-					<input class="switch-tab" id="tab-mycode" type=button onclick="switchTab('mycode')" value="My Code">
-				</div>
-         </div>
-         <div class="iframe-container">
-            <iframe id="window" src="./pages/mycode.html" scrolling="no"></iframe>
-         </div>
+            <div class="navbar-item-container">
+              <a id="nav-title">Husky Code</a>
+            </div>
+          </div>
+          <!-- The block on the right of the header -->
+          <div class="navbar-right-container">
+            <div class="navbar-item-container">
+              <img src="./images/user_icon_template.JPG">
+            </div>
+            <div class="navbar-item-container">
+              <a class="nav-item">Dashboard</a>
+            </div>
+            <div class="navbar-item-container">
+              <a class="nav-item">Interview Prep</a>
+            </div>
+            <div class="navbar-item-container">
+              <a class="nav-item">Discussion</a>
+            </div>
+            <div class="navbar-item-container">
+              <a class="nav-item">Problems</a>
+            </div>
+          </div>
+        </div>
       </div>
-   </body>
+      <div class="select-bar-container">
+        <div id="dropdown-menu">
+          <img src="./images/menubaricon.png" alt="hamburger icon" id="hambuger-icon">
+          <select id="select-text-indent">
+        </div>
+        <!-- TODO <img src="./images/menubaricon.png" class="navbar-item-container"> -->
+        <option value="">Midterm Spring '09</option>
+        <option value="">Midterm Spring '10</option>
+        <option value="">Midterm Spring '11</option>
+        <option value="">Midterm Spring '12</option>
+        </select>
+      </div>
+      <div class="switch-tab-container">
+        <div class="switch-tab-item-container">
+          <input class="switch-tab" id="tab-timer" type=button onclick="switchTab('timer')" value="Timer">
+        </div>
+        <div class="switch-tab-item-container">
+          <input class="switch-tab" id="tab-solutions" type=button onclick="switchTab('solutions')" value="Solutions">
+        </div>
+        <div class="switch-tab-item-container">
+          <input class="switch-tab" id="tab-discussions" type=button onclick="switchTab('discussions')" value="Discussion">
+        </div>
+        <div class="switch-tab-item-container">
+          <input class="switch-tab" id="tab-mycode" type=button onclick="switchTab('mycode')" value="My Code">
+        </div>
+      </div>
+      <div class="iframe-container">
+        <iframe id="window" src="./pages/mycode.html" scrolling="no"></iframe>
+      </div>
+    </div>
+  </body>
 </html>
