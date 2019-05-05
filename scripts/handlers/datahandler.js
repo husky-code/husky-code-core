@@ -2,13 +2,7 @@ function handleData(url, args, func, requestType) {
 	var xhr = new XMLHttpRequest();
 	var params = "?";
 	args = JSON.stringify(args);
-	// TODO: params += args.replace(/(")(,)(:)( )({)(})/g, "[replace this with some regex?]");
-	params += args.replace(/"/g, "");
-	params = params.replace(/,/g, "&");
-	params = params.replace(/:/g, "=");
-	params = params.replace(/ /g, "+");
-	params = params.replace(/{/g, "");
-	params = params.replace(/}/g, "");
+	params += args.replace(/"|{|}/g, "").replace(/,/g, "&").replace(/:/g, "=").replace(/ /g, "+");
 	xhr.onreadystatechange = function() {
 		if (this.readystate == 4) {
 			if (this.status == 200) {
