@@ -9,7 +9,8 @@
     <!-- import font awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- import the webpage's javascript file -->
-    <script src="./scripts/handlers/tabhandler.js"></script>
+    <script type="text/javascript" src="./scripts/handlers/tabhandler.js"></script>
+    <script type="text/javascript" src="./scripts/handlers/datahandler.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -70,9 +71,71 @@
           <input class="switch-tab" id="tab-mycode" type=button onclick="switchTab('mycode')" value="My Code">
         </div>
       </div>
-      <div class="iframe-container">
-        <iframe id="window" src="./pages/mycode.html" scrolling="no"></iframe>
+      <!-- 
+<div class="iframe-container">
+        <iframe id="window" src="./pages/mycode.html" scrolling="no">
+        	window.addEventListener('message', function(event) { 
+    			// IMPORTANT: Check the origin of the data! 
+    			if (~event.origin.indexOf('http://yoursite.com')) { 
+        		// The data has been sent from your site 
+        		// The data sent with postMessage is stored in event.data 
+        		console.log(event.data); 
+    			} else { 
+        			// The data hasn't been sent from your site! 
+        			// Be careful! Do not use it. 
+        			return; 
+    			} 
+			});
+        </iframe>
       </div>
+ -->
+    	<div class="body-no-margin"> <!-- class="iframe-container" -->
+    		<!-- This part is the main contain -->
+		  <div class="content-container">
+			 <!-- This is the left side of the main content -->
+			 <div class="question-info-container">
+				<div class="question-header-container">
+				   <div class="question-title-container">
+					  <div class="question-completion-container">
+						 <a id="question-completion">Incomplete</a>
+					  </div>
+					  <div class="question-name-container">
+						 <a id="question-name">favoriteLetter</a>
+					  </div>
+					  <div class="question-diffculty">
+						 <a id="question-difficulty">Diffculty: EASY</a>
+					  </div>
+				   </div>
+				   <div class="question-subject-container">
+					  <!-- TODO: subject categories -->
+				   </div>
+				   <div class="question-author-container">
+					  <div>
+						 <a href="" id="question-author"> </a>
+					  </div>
+					  <div>
+						 <a href="" id="question-time"> </a>
+					  </div>
+				   </div>
+				</div>
+				<div class="question-content-container">
+				   <div class="question-description-container"></div>
+				   <div class="tab-footer-container">
+					  <div class="tab"></div>
+					  <div class="tab"></div>
+					  <div class="tab"></div>
+				   </div>
+				</div>
+			 </div>
+			 <div class="interaction-container">
+				<div id="code-editor-container">
+				   <!-- TODO: text editor -->
+				   <!-- <p>Monaco text editor will go here.</p> -->
+				</div>
+				<div class="footer-container"></div>
+			 </div>
+		  </div>
+		</div>
     </div>
   </body>
 </html>
