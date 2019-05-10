@@ -142,6 +142,13 @@ select {
    margin-left: 5%;
 }
 
+.question-content-container {
+   font-size: 12px;
+   margin-left: 2em;
+   margin-bottom: 1em;
+   background-color: white;
+}
+
 .question-header-container {
    margin-left: 2em;
    margin-bottom: 1em;
