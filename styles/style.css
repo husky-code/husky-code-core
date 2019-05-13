@@ -96,10 +96,11 @@ select {
 }
 
 .navbar-item-container {
-   margin-top: 0.5em;
-   margin-bottom: 0.5em;
-   height: 2.5em;
-   font-size: 20px;
+	cursor: pointer;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    height: 2.5em;
+    font-size: 20px;
 }
 
 .navbar-left-container {
@@ -167,6 +168,7 @@ select {
    border-radius: 10px 10px 0% 0%;
    border-top: 1px solid black;
    background-color: white;
+   cursor: pointer;
    font-size: 11px;
    height: 30px;
    width: 100px;
@@ -189,7 +191,7 @@ select {
 }
 
 #dropdown-menu {
-  position: relative;
+	position: relative;
 }
 
 #hambuger-icon {
@@ -221,6 +223,10 @@ select {
 
 #question-completion {
 	margin: 10px 0px 0px 75%;
+}
+
+#select-text-indent {
+	cursor: pointer;
 }
 
 #window {
