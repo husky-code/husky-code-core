@@ -204,6 +204,7 @@ class SelectYear extends React.Component {
 	render() {
 		return (
 			<div id="dropdown-menu">
+				<img src="./images/menubaricon.png" alt="hamburger icon" id="hambuger-icon"/>
 				<select id="select-text-indent">
 					<option value="">Midterm Spring '09</option>
 					<option value="">Midterm Spring '10</option>
