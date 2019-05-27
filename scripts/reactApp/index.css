@@ -1,0 +1,288 @@
+/* CSS files add styling rules to your content */
+/* import nunito sans font (substitute for Avenir) */
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* 
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+ */
+
+a {
+   display: block;
+}
+
+body {
+  margin: 30px 50px;
+}
+
+body, select, input {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+nav, nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style-type: none;
+  margin-left: auto;
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 35px;
+}
+
+nav ul.navbar-no-vertical-margin li:not(:last-child) {
+  margin-right: 20px;
+}
+
+option span {
+  margin-right: 50px;
+}
+
+select {
+  border-color: black;
+  border-radius: 5px;
+  height: 40px;
+  width: 200px;
+  text-indent: 50px;
+  font-size: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-overflow: '';
+}
+
+.body-no-margin {
+   margin: 0;
+   height: 2000px;
+}
+
+.content-container {
+   height: 100%;
+}
+
+.header {
+   height: 5em;
+}
+
+.header > div {
+   font-size: 1.5em;
+}
+
+.iframe-container {
+   height: 1000px;
+}
+
+.interaction-container {
+   /* border: 1px solid #DDDDDD; */
+   float: right;
+   width: 54%;
+   height: 20%;
+}
+
+.layout {
+   height: 1000px;
+}
+
+.navbar-container a {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+}
+
+.navbar-container img {
+   height: 100%;
+   width: 100%;
+}
+
+.navbar-container .navbar-item-container img {
+   height: 100%;
+   width: 2.5em;
+}
+
+.navbar-item-container {
+	cursor: pointer;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    height: 2.5em;
+    font-size: 20px;
+}
+
+.navbar-left-container {
+   float: left;
+   width: 30%;
+}
+
+.navbar-left-container .navbar-item-container {
+   float: left;
+   margin-right: 5%;
+}
+
+.navbar-no-vertical-margin {
+  float: right;
+  margin: 0px 0px 0px 70%;
+}
+
+.navbar-right-container {
+   float: right;
+   width: 60%;
+}
+
+.navbar-right-container .navbar-item-container {
+   float: right;
+   margin-left: 5%;
+}
+
+.question-content-container {
+   font-size: 12px;
+   margin-left: 2em;
+   margin-bottom: 1em;
+   background-color: white;
+}
+
+.question-header-container {
+   margin-left: 2em;
+   margin-bottom: 1em;
+   background-color: white;
+}
+
+.question-header-container > div {
+	margin-bottom: 1em;
+}
+
+.question-info-container {
+   background-color: white;
+   float: left;
+   width: 37.5%;
+   height: 1000px;
+}
+
+.question-title-container > div {
+   width: auto;
+}
+
+.select-bar-container {
+   width: 100%;
+   margin-bottom: 0em;
+}
+
+.switch-tab {
+   border: none;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+   border-radius: 10px 10px 0% 0%;
+   border-top: 1px solid black;
+   background-color: white;
+   cursor: pointer;
+   font-size: 11px;
+   height: 30px;
+   width: 100px;
+}
+
+.switch-tab:focus {
+	outline: 0;
+}
+
+.switch-tab-container {
+   width: 100%;
+   margin-bottom: 0em;
+   padding-right: 0em;
+   height: 30px
+}
+
+.switch-tab-item-container {
+   float: right;
+   margin-left: 0.5em;
+}
+
+#dropdown-menu {
+	position: relative;
+}
+
+#hambuger-icon {
+  position: absolute;
+  width: 24px;
+  left: 10px;
+  height: 24px;
+  top: 8px;
+}
+
+#husky-icon {
+  position: relative;
+  top: -10px;
+}
+
+#nav-title {
+   font-size: 29px;
+   font-weight: 1000;
+   text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+   height: 100%;
+   margin: 0;
+}
+
+#question-name {
+   font-size: 24px;
+   font-weight: 900;
+   text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+}
+
+#question-completion {
+	margin: 10px 0px 0px 75%;
+}
+
+#select-text-indent {
+	cursor: pointer;
+}
+
+#window {
+   border: none;
+  float: left;
+  height: 30em;
+  width: 100%;
+}
