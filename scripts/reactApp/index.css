@@ -195,6 +195,10 @@ select {
    background-color: white;
 }
 
+.question-difficulty-container {
+	float: center;
+}
+
 .question-header-container {
    margin-left: 2em;
    margin-bottom: 1em;
@@ -212,6 +216,10 @@ select {
    height: 1000px;
 }
 
+.question-small {
+	font-size: 10px;
+}
+
 .question-title-container > div {
    width: auto;
 }
@@ -222,16 +230,16 @@ select {
 }
 
 .switch-tab {
-   border: none;
-   border-left: 1px solid black;
-   border-right: 1px solid black;
-   border-radius: 10px 10px 0% 0%;
-   border-top: 1px solid black;
-   background-color: white;
-   cursor: pointer;
-   font-size: 11px;
-   height: 30px;
-   width: 100px;
+	border: none;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-radius: 10px 10px 0% 0%;
+	border-top: 1px solid black;
+	background-color: white;
+	cursor: pointer;
+	font-size: 11px;
+	height: 30px;
+	width: 100px;
 }
 
 .switch-tab:focus {
@@ -262,7 +270,7 @@ select {
   top: 8px;
 }
 
-#husky-icon {
+#huskycodeicon {
   position: relative;
   top: -10px;
 }
@@ -275,23 +283,16 @@ select {
    margin: 0;
 }
 
-#question-name {
-   font-size: 24px;
-   font-weight: 900;
-   text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+#select-text-indent {
+	cursor: pointer;
 }
 
 #question-completion {
 	margin: 10px 0px 0px 75%;
 }
 
-#select-text-indent {
-	cursor: pointer;
-}
-
-#window {
-   border: none;
-  float: left;
-  height: 30em;
-  width: 100%;
+#question-name {
+	font-size: 24px;
+	font-weight: 900;
+	text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
 }

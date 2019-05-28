@@ -109,21 +109,16 @@ class QuestionInfo extends React.Component {
 					  	</div>
 					  	<div className="question-name-container">
 						 	<a id="question-name">favoriteLetter</a>
+							<a className="question-small" id="question-difficulty">Diffculty: EASY</a>
 					  	</div>
-					  	<div className="question-diffculty">
-							<a id="question-difficulty">Diffculty: EASY</a>
-					  	</div>
+					  	
 				   	</div>
-					<div className="question-subject-container">
-				   		<p/>
+					<div className="question-small question-subject-container">
+				   		<p id="question-subject">Subject: <u>Scanner</u>, <u>Input</u>, <u>Method basics</u></p>
 					</div>
-					<div className="question-author-container">
-						<div>
-							<a href="" id="question-author"> </a>
-						</div>
-						<div>
-							<a href="" id="question-time"> </a>
-						</div>
+					<div className="question-small question-author-container">
+						<p id="question-author">Author: Kasey Champion</p>
+						<p id="question-time">01/01/2019</p>
 					</div>
 				</div>
 				<div className="question-content-container">
@@ -253,9 +248,17 @@ class NavItem extends React.Component {
 	}
 }
 class NavImg extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			idName: this.props.path.substr(
+				this.props.path.search("./images/")+"./images/".length
+			).replace(/_|.JPG|.jpg/g, "")
+		}
+	}
 	render() {
 		return (
-			<div className="navbar-item-container">
+			<div className="navbar-item-container" id={this.state.idName}>
 				<img src={this.props.path}/>
 			</div>
 		);
