@@ -209,6 +209,10 @@ select {
 	margin-bottom: 1em;
 }
 
+.question-hrline {
+	border: 0.3px solid #C3C3C3;
+}
+
 .question-info-container {
    background-color: white;
    float: left;
@@ -218,6 +222,7 @@ select {
 
 .question-small {
 	font-size: 10px;
+	color: #999999;
 }
 
 .question-title-container > div {
@@ -258,6 +263,14 @@ select {
    margin-left: 0.5em;
 }
 
+#difficulty {
+	color: #8BC63F;
+}
+
+#code-editor-container {
+	border: 1px solid #B3B3B3;
+}
+
 #dropdown-menu {
 	position: relative;
 }
@@ -285,14 +298,21 @@ select {
 
 #select-text-indent {
 	cursor: pointer;
+	font-size: 12px;
 }
 
 #question-completion {
+	background-color: #8BC63F;
+	/* border: 1px solid black; */
+	border-radius: 10px;
+	color: white;
+	font-size: 10px;
 	margin: 10px 0px 0px 75%;
+	padding: 5px 0px 5px 20px;
 }
 
 #question-name {
 	font-size: 24px;
 	font-weight: 900;
-	text-shadow:0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+	text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
 }

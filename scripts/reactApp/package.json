@@ -12,14 +12,18 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.2",
+    "i": "^0.3.6",
     "monaco-editor-webpack-plugin": "^1.7.0",
+    "npm": "^6.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-fontawesome": "^1.6.1",
     "react-loader-spinner": "^2.3.0",
     "react-monaco": "0.1.0-alpha.0",
     "react-monaco-editor": "^0.25.1",
     "react-scripts": "^3.0.1",
     "tedious": "^5.0.3",
+    "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"

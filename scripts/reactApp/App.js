@@ -4,7 +4,7 @@ import MonacoEditor from 'react-monaco-editor';
 import * as editor from 'monaco-editor/esm/vs/editor/editor.main';
 import './index.css';
 
-const code = `WELCOME to monaco editor`;
+const code = `WELCOME to monaco editor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`;
 
 class App extends React.Component {
 	constructor() {
@@ -57,7 +57,7 @@ class CodeEditor extends React.Component {
       		readOnly: false,
       		cursorStyle: 'line',
       		automaticLayout: true,
-      		theme: 'vs-dark',
+      		theme: 'vs-light',
       		acceptSuggestionOnEnter: true ,
       		acceptSuggestionOnCommitCharacter: true,
       		autoClosingBrackets: '['| '{',
@@ -66,7 +66,7 @@ class CodeEditor extends React.Component {
 			<div className="interaction-container">
 				<div id="code-editor-container">
 					<MonacoEditor
-        				height="450px"
+        				height="415px"
         				language="javascript"
         				editorDidMount={this.editorDidMount.bind(this)}
         				onChange={this.onChange.bind(this)}
@@ -105,11 +105,11 @@ class QuestionInfo extends React.Component {
 				<div className="question-header-container">
 					<div className="question-title-container">
 						<div className="question-completion-container">
-							<a id="question-completion">Incomplete</a>
+							<a id="question-completion">Completed <i class="fas fa-check-circle"></i></a>
 					  	</div>
 					  	<div className="question-name-container">
 						 	<a id="question-name">favoriteLetter</a>
-							<a className="question-small" id="question-difficulty">Diffculty: EASY</a>
+							<a className="question-small" id="question-difficulty">Diffculty: <span id="difficulty">EASY</span></a>
 					  	</div>
 					  	
 				   	</div>
@@ -120,6 +120,7 @@ class QuestionInfo extends React.Component {
 						<p id="question-author">Author: Kasey Champion</p>
 						<p id="question-time">01/01/2019</p>
 					</div>
+					<hr className="question-hrline"/>
 				</div>
 				<div className="question-content-container">
 					<div className="question-description-container">
@@ -158,7 +159,7 @@ class SwitchTab extends React.Component {
 		ReactDOM.findDOMNode(mycode).style.color = 'white';
 	}
 	renderTab(str) {
-		return <Tab value={str} nodeVal={str.toLowerCase().replace(/ /, "")}/>
+		return <Tab value={str} nodeVal={str.toLowerCase().replace(/ /g, "")}/>
 	};
 	render() {
 		return (
