@@ -102,6 +102,12 @@ class InteractionFooter extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+	componentDidMount() {
+		var submitcode = document.getElementById("submitcode");
+		ReactDOM.findDOMNode(submitcode).style.backgroundColor = 'black';
+		ReactDOM.findDOMNode(submitcode).style.color = 'white';
+		
+	}
 	renderReusableButton(str, reusableClass) {
 		return <ReusableButton value={str} nodeVal={str.toLowerCase().replace(/ /g, "")} nodeClass={reusableClass}/>;
 	};
