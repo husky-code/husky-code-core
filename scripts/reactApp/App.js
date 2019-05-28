@@ -4,7 +4,7 @@ import MonacoEditor from 'react-monaco-editor';
 import * as editor from 'monaco-editor/esm/vs/editor/editor.main';
 import './index.css';
 
-const code = `WELCOME to monaco editor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`;
+const code = `Type your code here\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`;
 
 class App extends React.Component {
 	constructor() {
@@ -114,7 +114,7 @@ class InteractionFooter extends React.Component {
 	render() {
 		return (
 			<div id="interaction-footer">
-				<span className="footer-small"><span id="runtime"><b>Runtime</b>: 49 ms</span>, <span id="memory-usage">
+				<span className="interaction-footer-small"><span id="runtime"><b>Runtime</b>: 49 ms</span>, <span id="memory-usage">
 					<b>Memory Usage</b>: 38.4 MB</span></span>
 				{this.renderReusableButton("Submit Code", "code-button")}
 				{this.renderReusableButton("Run Code", "code-button")}
@@ -173,10 +173,10 @@ class QuestionInfo extends React.Component {
 				   			(User input is underlined.)
 				   		</p>
 					</div>
-					<div className="tab-footer-container">
-						<div className="tab"></div>
-						<div className="tab"></div>
-						<div className="tab"></div>
+					<div className="reaction-footer-container">
+						<p className="reaction-footer-item">Share</p>
+						<p className="reaction-footer-item">Dislikes (9999)</p>
+						<p className="reaction-footer-item">Likes (1000)</p>
 					</div>
 				</div>
 			</div>
