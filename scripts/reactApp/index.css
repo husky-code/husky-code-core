@@ -113,8 +113,25 @@ select {
    height: 2000px;
 }
 
+.code-button {
+	border: 1px solid black;
+	border-radius: 2px;
+	cursor: pointer;
+	float: right;
+	font-weight: 600;
+	font-size: 10px;
+	margin: 0.25em 0.5em 0em 1em;
+	padding: 2px 10px;
+}
+
 .content-container {
    height: 100%;
+}
+
+.footer-small {
+	color: #808080;
+	font-size: 10px;
+	padding: 10px;
 }
 
 .header {
@@ -130,10 +147,9 @@ select {
 }
 
 .interaction-container {
-   /* border: 1px solid #DDDDDD; */
-   float: right;
-   width: 54%;
-   height: 20%;
+	float: right;
+	width: 54%;
+	height: 20%;
 }
 
 .layout {
@@ -188,6 +204,10 @@ select {
    margin-left: 5%;
 }
 
+.question-author-container, .question-name-container {
+	display: inline;
+}
+
 .question-content-container {
    font-size: 12px;
    margin-left: 2em;
@@ -221,8 +241,8 @@ select {
 }
 
 .question-small {
-	font-size: 10px;
 	color: #999999;
+	font-size: 10px;
 }
 
 .question-title-container > div {
@@ -284,8 +304,15 @@ select {
 }
 
 #huskycodeicon {
-  position: relative;
-  top: -10px;
+	position: relative;
+	top: -10px;
+}
+
+#interaction-footer {
+	border: solid #B3B3B3;
+	border-width: 0px 1px 1px;
+	height: 25px;
+	width: 100%-2px;
 }
 
 #nav-title {
@@ -296,14 +323,14 @@ select {
    margin: 0;
 }
 
-#select-text-indent {
-	cursor: pointer;
-	font-size: 12px;
+#question-author {
+	float: left;
+	margin: auto;
+	margin-right: 15px;
 }
 
 #question-completion {
 	background-color: #8BC63F;
-	/* border: 1px solid black; */
 	border-radius: 10px;
 	color: white;
 	font-size: 10px;
@@ -311,8 +338,27 @@ select {
 	padding: 5px 0px 5px 20px;
 }
 
+#question-difficulty {
+	display: inline;
+	margin-left: 2em;
+	width: 20%;
+}
+
 #question-name {
 	font-size: 24px;
 	font-weight: 900;
+	float: left;
 	text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+	width: auto;
+}
+
+#select-text-indent {
+	background-color: white;
+	border: 1px solid black;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+#select-text-indent:focus {
+	outline: 0;
 }

@@ -93,8 +93,36 @@ class CodeEditor extends React.Component {
         				}}
       				/>
 				</div>
-				<div className="footer-container"></div>
+				<InteractionFooter/>
 			</div>
+		);
+	}
+}
+class InteractionFooter extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	renderReusableButton(str, reusableClass) {
+		return <ReusableButton value={str} nodeVal={str.toLowerCase().replace(/ /g, "")} nodeClass={reusableClass}/>;
+	};
+	render() {
+		return (
+			<div id="interaction-footer">
+				<span className="footer-small"><span id="runtime"><b>Runtime</b>: 49 ms</span>, <span id="memory-usage">
+					<b>Memory Usage</b>: 38.4 MB</span></span>
+				{this.renderReusableButton("Submit Code", "code-button")}
+				{this.renderReusableButton("Run Code", "code-button")}
+			</div>
+		);
+	}
+}
+class ReusableButton extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<input type="button" value={this.props.value} className={this.props.nodeClass} id={this.props.nodeVal}></input>
 		);
 	}
 }
