@@ -66,7 +66,7 @@ class CodeEditor extends React.Component {
 			<div className="interaction-container">
 				<div id="code-editor-container">
 					<MonacoEditor
-        				height="500px"
+        				height="450px"
         				language="javascript"
         				editorDidMount={this.editorDidMount.bind(this)}
         				onChange={this.onChange.bind(this)}
