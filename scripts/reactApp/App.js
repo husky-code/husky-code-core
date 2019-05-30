@@ -125,10 +125,22 @@ class InteractionFooter extends React.Component {
 class ReusableButton extends React.Component {
 	constructor(props) {
 		super(props);
+		this.switchButton = this.switchButton.bind(this);
+	}
+	switchButton() {
+		var curr = document.getElementById(this.props.nodeVal);
+		var all = document.getElementsByClassName(this.props.nodeClass);
+		for (var i = 0; i < all.length; i++) {
+			ReactDOM.findDOMNode(all[i]).style.backgroundColor = 'white';
+  			ReactDOM.findDOMNode(all[i]).style.color = 'black';
+		}
+		ReactDOM.findDOMNode(curr).style.backgroundColor = 'black';
+		ReactDOM.findDOMNode(curr).style.color = 'white';
 	}
 	render() {
 		return (
-			<input type="button" value={this.props.value} className={this.props.nodeClass} id={this.props.nodeVal}></input>
+			<input type="button" value={this.props.value} className={this.props.nodeClass} 
+				id={this.props.nodeVal} onClick={this.switchButton}/>
 		);
 	}
 }
@@ -192,40 +204,24 @@ class SwitchTab extends React.Component {
 		ReactDOM.findDOMNode(mycode).style.backgroundColor = 'black';
 		ReactDOM.findDOMNode(mycode).style.color = 'white';
 	}
-	renderTab(str) {
-		return <Tab value={str} nodeVal={str.toLowerCase().replace(/ /g, "")}/>
+	renderReusableButton(str, reusableClass) {
+		return <ReusableButton value={str} nodeVal={str.toLowerCase().replace(/ /g, "")} nodeClass={reusableClass}/>;
 	};
 	render() {
 		return (
 			<div className="switch-tab-container">
-				{this.renderTab("Timer")}
-				{this.renderTab("Solutions")}
-				{this.renderTab("Discussion")}
-				{this.renderTab("My Code")}
-			</div>
-		);
-	}
-}
-class Tab extends React.Component {
-	constructor(props) {
-		super(props);
-		this.switchTab = this.switchTab.bind(this);
-	}
-	switchTab() {
-		var tab = document.getElementById(this.props.nodeVal);
-		var all = document.getElementsByClassName('switch-tab');
-		for (var i = 0; i < all.length; i++) {
-			ReactDOM.findDOMNode(all[i]).style.backgroundColor = 'white';
-  			ReactDOM.findDOMNode(all[i]).style.color = 'black';
-		}
-		ReactDOM.findDOMNode(tab).style.backgroundColor = 'black';
-		ReactDOM.findDOMNode(tab).style.color = 'white';
-	}
-	render() {
-		return (
-			<div className="switch-tab-item-container">
-				<input className="switch-tab" type="button" value={this.props.value} 
-					id={this.props.nodeVal} onClick={this.switchTab}/>
+				<div className="switch-tab-item-container">
+					{this.renderReusableButton("Timer", "switch-tab")}
+				</div>
+				<div className="switch-tab-item-container">
+					{this.renderReusableButton("Solutions", "switch-tab")}
+				</div>
+				<div className="switch-tab-item-container">
+					{this.renderReusableButton("Discussion", "switch-tab")}
+				</div>
+				<div className="switch-tab-item-container">
+					{this.renderReusableButton("My Code", "switch-tab")}
+				</div>
 			</div>
 		);
 	}
