@@ -255,6 +255,7 @@ select {
 
 .reaction-footer-item {
 	color: #999999;
+	cursor: pointer;
 	display: inline;
 	float: right;
 	font-size: 10px;

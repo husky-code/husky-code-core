@@ -151,7 +151,7 @@ class QuestionInfo extends React.Component {
 				<div className="question-header-container">
 					<div className="question-title-container">
 						<div className="question-completion-container">
-							<a id="question-completion">Completed <i class="fas fa-check-circle"></i></a>
+							<a id="question-completion">Completed <i className="fas fa-check-circle"></i></a>
 					  	</div>
 					  	<div className="question-name-container">
 						 	<a id="question-name">favoriteLetter</a>
@@ -186,9 +186,9 @@ class QuestionInfo extends React.Component {
 				   		</p>
 					</div>
 					<div className="reaction-footer-container">
-						<p className="reaction-footer-item">Share</p>
-						<p className="reaction-footer-item">Dislikes (9999)</p>
-						<p className="reaction-footer-item">Likes (1000)</p>
+						<a className="reaction-footer-item">Share</a>
+						<a className="reaction-footer-item">Dislikes (9999)</a>
+						<a className="reaction-footer-item">Likes (1000)</a>
 					</div>
 				</div>
 			</div>
