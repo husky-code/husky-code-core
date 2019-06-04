@@ -79,15 +79,19 @@ option span {
 }
 
 select {
-  border-color: black;
-  border-radius: 5px;
-  height: 40px;
-  width: 200px;
-  text-indent: 50px;
-  font-size: 15px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-overflow: '';
+	border-color: black;
+	border-radius: 5px;
+	height: 40px;
+	width: 200px;
+	text-indent: 50px;
+	font-size: 15px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-overflow: '';
+}
+
+select:focus {
+	outline: 0;
 }
 
 .body-no-margin {
