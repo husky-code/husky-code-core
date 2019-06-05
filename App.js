@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import ReusableButton from './components/ReusableButton';
 import NavBar from './components/NavBar';
 import QuestionPage from './components/QuestionPage';
