@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
-import ReusableButton from './components/ReusableButton';
-import NavBar from './components/NavBar';
-import QuestionPage from './components/QuestionPage';
+import { Link, Route, Switch } from 'react-router-dom';
+import Question from './scenes/Question';
 import './index.css';
 
 class App extends React.Component {
@@ -16,8 +14,8 @@ class App extends React.Component {
 	render() {
     	return (
         	<div className="layout">
-            	<NavBar/>
-            	<QuestionPage/>
+            	<Question/>
+            	<Route exact={true} path="/" component={Question}/>
         	</div>
     	);
 	}

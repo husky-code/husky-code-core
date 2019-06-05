@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReusableButton from '../../../../../ReusableButton';
+import ReusableButton from '../../../../../../components/ReusableButton';
 
 class InteractionFooter extends React.Component {
 	constructor(props) {
