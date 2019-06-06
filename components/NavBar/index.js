@@ -24,8 +24,8 @@ class NavBar extends React.Component {
 				</div>
 				<div className="navbar-right-container">
 					{this.renderNavImg("./images/user_icon_template.JPG")}
-					<Link to="/" className="inline-link">{this.renderNavItem("Dashboard")}</Link>
-					<Link to="/" className="inline-link">{this.renderNavItem("Interview Prep")}</Link>
+					<Link to="/dashboard" className="inline-link">{this.renderNavItem("Dashboard")}</Link>
+					<Link to="/interviewprep" className="inline-link">{this.renderNavItem("Interview Prep")}</Link>
 					<Link to="/discussion" className="inline-link">{this.renderNavItem("Discussion")}</Link>
 					<Link to="/" className="inline-link">{this.renderNavItem("Problems")}</Link>
 				</div>

@@ -17,6 +17,8 @@ class App extends React.Component {
         	<div className="layout">
             	<Route exact={true} path="/" component={Question}/>
             	<Route path="/discussion" component={Discussion}/>
+            	<Route path="/interviewprep" component={Discussion}/>
+            	<Route path="/dashboard" component={Discussion}/>
         	</div>
     	);
 	}

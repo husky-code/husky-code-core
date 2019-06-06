@@ -20,7 +20,7 @@ nav ul.navbar-no-vertical-margin li:not(:last-child) {
 	display: inline;
 }
 
-.inline-link:visited {
+.inline-link:visited, .inline-link:link {
 	color: black;
 }
 
