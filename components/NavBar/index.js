@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 import NavItem from './components/NavItem';
 import NavImg from './components/NavImg';
 import NavHeader from './components/NavHeader';
@@ -23,10 +24,10 @@ class NavBar extends React.Component {
 				</div>
 				<div className="navbar-right-container">
 					{this.renderNavImg("./images/user_icon_template.JPG")}
-					{this.renderNavItem("Dashboard")}
-					{this.renderNavItem("Interview Prep")}
-					{this.renderNavItem("Discussion")}
-					{this.renderNavItem("Problems")}
+					<Link to="/" className="inline-link">{this.renderNavItem("Dashboard")}</Link>
+					<Link to="/" className="inline-link">{this.renderNavItem("Interview Prep")}</Link>
+					<Link to="/discussion" className="inline-link">{this.renderNavItem("Discussion")}</Link>
+					<Link to="/" className="inline-link">{this.renderNavItem("Problems")}</Link>
 				</div>
 			</div>
 		);
