@@ -2,7 +2,8 @@
 var request = require('request');
 
 var client = {
-    script : "public class Test { public static void main(String[] args) { System.out.println(\"Hello World\"); } }",
+    script: "public class Test { public static void main(String[] args) { System.out.println(\"Hello World\"); } }",
+    stdin: "",
     language: "java",
     versionIndex: "0",
     clientId: "9fcc3369967570f5ccaad56fed685c7e",
