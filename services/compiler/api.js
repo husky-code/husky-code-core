@@ -1,4 +1,4 @@
-// Call to JDoodle API, licensed to Nutpan.com
+// Call to JDoodle API, licensed by Nutpan.com
 var request = require('request');
 
 var client = {
