@@ -1,8 +1,9 @@
 // Call to JDoodle API, licensed by Nutpan.com
 var request = require('request');
+var wrapper = require('./wrapper');
 
 var client = {
-    script: "public class Test { public static void main(String[] args) { System.out.println(\"Hello World\"); } }",
+    script: wrapper.wrapScript("System.out.println(\"Hello World\");"),
     stdin: "",
     language: "java",
     versionIndex: "0",
