@@ -25,6 +25,7 @@
     "react-monaco-editor": "^0.25.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
+    "request": "^2.88.0",
     "tar": "^4.4.10",
     "tedious": "^5.0.3",
     "typescript": "^3.4.5",
