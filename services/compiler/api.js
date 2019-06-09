@@ -2,9 +2,11 @@
 var request = require('request');
 var wrapper = require('./wrapper');
 
+var code = "public void printMessage(String str) { System.out.println(str); }"
+
 var client = {
     script: wrapper.wrapScript("System.out.println(\"Hello World\");"),
-    stdin: "",
+    stdin: "Hello World!",
     language: "java",
     versionIndex: "0",
     clientId: "9fcc3369967570f5ccaad56fed685c7e",
