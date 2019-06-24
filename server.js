@@ -12,10 +12,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.engine('jsx', require('express-react-views').createEngine());
 
 router.get('/', (req, res) => {
-	res.send('<h1>Hello, world!</h1>' + db.queryDatabase());
+	res.send('<h1>Hello, world!</h1>');// + db.queryDatabase());
 });
 
-router.post('/redirect', (req, res) => {
+router.get('/users', (req, res) => {
+	res.send('<h1>Users</h1>' + db.queryDatabase());
+});
+
+router.post('/createUser', (req, res) => {
 	res.send({ data: req.body.data });
 });
 
