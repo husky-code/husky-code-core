@@ -1,18 +1,18 @@
-var express = require('express');
-var app = express();
-var router = express.Router();
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+var express = require('express'),
+	app = express(),
+	router = express.Router(),
+	logger = require('morgan'),
+	bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
+const db = require('./db');
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine());
+// app.set('view engine', 'jsx');
+// app.engine('jsx', require('express-react-views').createEngine());
 
 router.get('/', (req, res) => {
-	//res.send('<h1>Hello, world!</h1>' + req.data);
-	res.render('Question');
+	res.send('<h1>Hello, world!</h1>' + db.queryDatabase());
 });
 
 router.post('/redirect', (req, res) => {
