@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-	res.send('<h1>Users</h1>' + db.queryDatabase());
+	res.send('<h1>Users</h1>' + db.queryDatabase("SELECT * FROM USERS")); // FOR JSON PATH
 });
 
 router.post('/createUser', (req, res) => {
