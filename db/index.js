@@ -16,6 +16,7 @@ connection.on('connect', (err) => {
 
 module.exports = {
 	queryDatabase: (query) => {
+		var data = [];
     	console.log('Reading rows from the Table...');
     	// Read all rows from table
     	var request = new Request(query, (err, rowCount, rows) => {
@@ -23,10 +24,21 @@ module.exports = {
             //process.exit();
         });
     	request.on('row', (columns) => {
+        	var rowData = [];
         	columns.forEach((column) => {
-            	console.log("%s\t%s", column.metadata.colName, column.value);
+            	//console.log("%s\t%s", column.metadata.colName, column.value);
+            	rowData = column.value;
         	});
+        	//module.exports.data.push(rowData);
+        	data.push(rowData);
+    	});
+    	request.on('doneInProc', (rowCount, more, rows) => {
+    		//console.log(rows);
+    		// console.log(module.exports.data);
+    		console.log(data);
+    		//return data;
     	});
     	connection.execSql(request);
-	}
+	}// ,
+// 	data: []
 };

@@ -13,7 +13,8 @@ module.exports = {
     	server: 'server',
     	options: {
         	database: 'database',
-        	encrypt: true
+        	encrypt: true,
+        	rowCollectionOnDone: true
     	}
 	}
 };
