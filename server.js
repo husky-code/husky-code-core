@@ -28,7 +28,7 @@ router.get('/users', (req, res) => {
     	rows.forEach((row, i) => {
     		console.log(row[i].value);
     	});
-		res.send('<h1>Users</h1>' + rows[0][0].value);
+		res.send(rows[0][0].value);
     });
     connection.execSql(request);
 });
