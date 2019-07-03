@@ -3,9 +3,7 @@ var express = require('express'),
 	router = express.Router(),
 	logger = require('morgan'),
 	bodyParser = require('body-parser');
-var Connection = require('tedious').Connection,
-	Request = require('tedious').Request,
-	TYPES = require('tedious').TYPES;
+var Request = require('tedious').Request;
 const PORT = process.env.PORT || 3000;
 const db = require('./db');
 
@@ -25,21 +23,18 @@ router.get('/users', (req, res) => {
     // Read all rows from table
     var request = new Request("SELECT * FROM USERS FOR JSON PATH", (err, rowCount, rows) => {
     	console.log(rowCount + ' row(s) returned');
-        //process.exit();
     });
     request.on('doneInProc', (rowCount, more, rows) => {
-    	//console.log(data);
     	rows.forEach((row, i) => {
     		console.log(row[i].value);
     	});
-		res.send(rows);
+		res.send('<h1>Users</h1>' + rows[0][0].value);
     });
     connection.execSql(request);
-	//res.send('<h1>Users</h1>' + db.queryDatabase("SELECT * FROM USERS FOR JSON PATH")); //WHERE NETID='jonsnow'
 });
 
 router.post('/createUser', (req, res) => {
-	res.send({ data: req.body.data });
+	res.send({ data: req.body.data }); //add to db functionality needed
 });
 
 app.use('/', router);
