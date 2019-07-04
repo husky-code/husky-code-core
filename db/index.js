@@ -3,10 +3,11 @@ var Connection = require('tedious').Connection,
 	TYPES = require('tedious').TYPES;
 const config = require('./config');
 
+// Create connection to database
+var connection = new Connection(config.sqlconfig);
+
 module.exports = {
 	init: () => {
-		// Create connection to database
-		var connection = new Connection(config.sqlconfig);
 		// Attempt to connect and execute queries if connection goes through
 		connection.on('connect', (err) => {
 			if (err) {
@@ -15,6 +16,19 @@ module.exports = {
 				console.log("Connected to Azure SQL Server");
 			}
 		});
-		return connection;
+	},
+	queryDatabase: (query, req, res) => {
+		console.log('Reading rows from the Table...');
+    	// Read all rows from table
+    	var request = new Request(query, (err, rowCount, rows) => {
+    		console.log(rowCount + ' row(s) returned');
+    	});
+    	request.on('doneInProc', (rowCount, more, rows) => {
+    		rows.forEach((row, i) => {
+    			console.log(row[i].value);
+    		});
+			res.send(rows[0][0].value);
+    	});
+    	connection.execSql(request);
 	}
 };

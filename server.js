@@ -7,7 +7,7 @@ var Request = require('tedious').Request;
 const PORT = process.env.PORT || 3000;
 const db = require('./db');
 
-var connection = db.init();
+db.init();
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,18 +19,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-	console.log('Reading rows from the Table...');
-    // Read all rows from table
-    var request = new Request("SELECT * FROM USERS FOR JSON PATH", (err, rowCount, rows) => {
-    	console.log(rowCount + ' row(s) returned');
-    });
-    request.on('doneInProc', (rowCount, more, rows) => {
-    	rows.forEach((row, i) => {
-    		console.log(row[i].value);
-    	});
-		res.send(rows[0][0].value);
-    });
-    connection.execSql(request);
+	db.queryDatabase("SELECT * FROM USERS FOR JSON PATH", req, res);
 });
 
 router.post('/createUser', (req, res) => {
