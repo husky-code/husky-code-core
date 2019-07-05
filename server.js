@@ -19,7 +19,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-	db.queryDatabase("SELECT * FROM USERS FOR JSON PATH", req, res);
+	db.query("SELECT * FROM USERS FOR JSON PATH", req, res);
+});
+
+router.get('/user/:netid', (req, res) => {
+	var query = "SELECT * FROM USERS WHERE NETID='" + req.params.netid + "' FOR JSON PATH";
+	db.query(query, req, res);
 });
 
 router.post('/createUser', (req, res) => {

@@ -17,7 +17,7 @@ module.exports = {
 			}
 		});
 	},
-	queryDatabase: (query, req, res) => {
+	query: (query, req, res) => {
 		console.log('Reading rows from the Table...');
     	// Read all rows from table
     	var request = new Request(query, (err, rowCount, rows) => {
