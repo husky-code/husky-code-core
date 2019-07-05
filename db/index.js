@@ -24,10 +24,15 @@ module.exports = {
     		console.log(rowCount + ' row(s) returned');
     	});
     	request.on('doneInProc', (rowCount, more, rows) => {
-    		rows.forEach((row, i) => {
-    			console.log(row[i].value);
-    		});
-			res.send(rows[0][0].value);
+    		if (rowCount > 0) {
+    			rows.forEach((row, i) => {
+    				console.log(row[i].value);
+    			});
+				res.send(rows[0][0].value);
+			} else {
+				console.log("Query result undefined");
+				res.send("null");
+			}
     	});
     	connection.execSql(request);
 	}
