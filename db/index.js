@@ -4,7 +4,8 @@ var Connection = require('tedious').Connection,
 const config = require('./config');
 
 // Create connection to database
-var connection = new Connection(config.sqlconfig);
+var connection = new Connection(config.sqlconfig),
+	connected = false;
 
 module.exports = {
 	init: () => {
@@ -14,8 +15,12 @@ module.exports = {
 				console.log(err);
 			} else {
 				console.log("Connected to Azure SQL Server");
+				connected = true;
 			}
 		});
+	},
+	connected: () => {
+		return connected;
 	},
 	queryGet: (query, model, req, res) => {
 		console.log('Reading rows from the Table...');

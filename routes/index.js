@@ -3,7 +3,9 @@ var express = require('express'),
 	
 const db = require('../db');
 
-db.init();
+if (!db.connected()) {
+	db.init();
+}
 
 router.get('/', (req, res) => {
 	res.send('<h1>Hello, world!</h1>');
