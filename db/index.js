@@ -17,7 +17,7 @@ module.exports = {
 			}
 		});
 	},
-	query: (query, req, res) => {
+	queryGet: (query, model, req, res) => {
 		console.log('Reading rows from the Table...');
     	// Read all rows from table
     	var request = new Request(query, (err, rowCount, rows) => {
@@ -28,12 +28,24 @@ module.exports = {
     			rows.forEach((row, i) => {
     				console.log(row[i].value);
     			});
-				res.send(rows[0][0].value);
+				res.send(JSON.parse(rows[0][0].value)[model]);
 			} else {
 				console.log("Query result undefined");
 				res.send("null");
 			}
     	});
     	connection.execSql(request);
+	},
+	queryPost: (query, req, res) => {
+		var request = new Request(query, (err, rowCount, rows) => {
+			console.log(rowCount + ' row(s) affected');
+		});
+		// TODO
+	},
+	queryDelete: (query, req, res) => {
+		var request = new Request(query, (err, rowCount, rows) => {
+			console.log(rowCount + ' row(s) affected');
+		});
+		// TODO
 	}
 };
