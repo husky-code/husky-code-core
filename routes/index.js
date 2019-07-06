@@ -25,12 +25,12 @@ router.get('/user/:netid', (req, res) => {
 });
 
 // POST new user
-router.post('/user', (req, res) => {
+router.post('/createUser', (req, res) => {
 	db.queryPost("INSERT INTO USERS VALUES ", req, res); //TODO
 });
 
 // DELETE existing user
-router.delete('/user:netid', (req, res) => {
+router.delete('/deleteUser:netid', (req, res) => {
 	db.queryDelete("DELETE FROM USERS WHERE NETID='" + req.params.netid + "'", req, res); //TODO
 });
 

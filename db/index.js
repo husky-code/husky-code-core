@@ -42,10 +42,16 @@ module.exports = {
     	connection.execSql(request);
 	},
 	queryPost: (query, req, res) => {
-		var request = new Request(query, (err, rowCount, rows) => {
+		// TODO (replace with tedious parameters?)
+		var values = "(";
+		Object.keys(req.body).forEach((key, i) => {
+			values += (i > 0) ? ", " : "";
+			values += "'" + req.body[key] + "'";
+		});
+		values += ")";
+		var request = new Request(query + values, (err, rowCount, rows) => {
 			console.log(rowCount + ' row(s) affected');
 		});
-		// TODO
 	},
 	queryDelete: (query, req, res) => {
 		var request = new Request(query, (err, rowCount, rows) => {
