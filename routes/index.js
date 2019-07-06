@@ -26,12 +26,12 @@ router.get('/user/:netid', (req, res) => {
 
 // POST new user
 router.post('/createUser', (req, res) => {
-	db.queryPost("INSERT INTO USERS VALUES ", req, res); //TODO
+	db.queryPost("INSERT INTO USERS VALUES ", req, res); //add data model param?
 });
 
 // DELETE existing user
-router.delete('/deleteUser:netid', (req, res) => {
-	db.queryDelete("DELETE FROM USERS WHERE NETID='" + req.params.netid + "'", req, res); //TODO
+router.delete('/deleteUser/:netid', (req, res) => {
+	db.queryDelete("DELETE FROM USERS WHERE NETID='" + req.params.netid + "'", req, res);
 });
 
 module.exports = router;

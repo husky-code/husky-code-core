@@ -9,7 +9,7 @@ var connection = new Connection(config.sqlconfig),
 
 module.exports = {
 	init: () => {
-		// Attempt to connect and execute queries if connection goes through
+		// Attempt to connect to SQL server
 		connection.on('connect', (err) => {
 			if (err) {
 				console.log(err);
@@ -24,7 +24,6 @@ module.exports = {
 	},
 	queryGet: (query, model, req, res) => {
 		console.log('Reading rows from the Table...');
-    	// Read all rows from table
     	var request = new Request(query, (err, rowCount, rows) => {
     		console.log(rowCount + ' row(s) returned');
     	});
@@ -42,21 +41,38 @@ module.exports = {
     	connection.execSql(request);
 	},
 	queryPost: (query, req, res) => {
-		// TODO (replace with tedious parameters?)
 		var values = "(";
 		Object.keys(req.body).forEach((key, i) => {
 			values += (i > 0) ? ", " : "";
 			values += "'" + req.body[key] + "'";
 		});
 		values += ")";
+		console.log(values);
 		var request = new Request(query + values, (err, rowCount, rows) => {
 			console.log(rowCount + ' row(s) affected');
 		});
+		request.on('doneInProc', (rowCount, more, rows) => {
+    		if (rowCount > 0) {
+    			res.send("Query succeeded");
+			} else {
+				console.log("Query result undefined");
+				res.send("null");
+			}
+    	});
+		connection.execSql(request);
 	},
 	queryDelete: (query, req, res) => {
 		var request = new Request(query, (err, rowCount, rows) => {
 			console.log(rowCount + ' row(s) affected');
 		});
-		// TODO
+		request.on('doneInProc', (rowCount, more, rows) => {
+    		if (rowCount > 0) {
+    			res.send("Query succeeded");
+			} else {
+				console.log("Query result undefined");
+				res.send("null");
+			}
+    	});
+    	connection.execSql(request);
 	}
 };
