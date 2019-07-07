@@ -7,6 +7,18 @@ const config = require('./config');
 var connection = new Connection(config.sqlconfig),
 	connected = false;
 
+function execNoRowsReturned(request, res) {
+	request.on('doneInProc', (rowCount, more, rows) => {
+    	if (rowCount > 0) {
+    		res.send("Query succeeded");
+		} else {
+			console.log("Query result undefined");
+			res.send("null");
+		}
+    });
+	connection.execSql(request);
+}
+
 module.exports = {
 	init: () => {
 		// Attempt to connect to SQL server
@@ -51,28 +63,12 @@ module.exports = {
 		var request = new Request(query + values, (err, rowCount, rows) => {
 			console.log(rowCount + ' row(s) affected');
 		});
-		request.on('doneInProc', (rowCount, more, rows) => {
-    		if (rowCount > 0) {
-    			res.send("Query succeeded");
-			} else {
-				console.log("Query result undefined");
-				res.send("null");
-			}
-    	});
-		connection.execSql(request);
+		execNoRowsReturned(request, res);
 	},
 	queryDelete: (query, req, res) => {
 		var request = new Request(query, (err, rowCount, rows) => {
 			console.log(rowCount + ' row(s) affected');
 		});
-		request.on('doneInProc', (rowCount, more, rows) => {
-    		if (rowCount > 0) {
-    			res.send("Query succeeded");
-			} else {
-				console.log("Query result undefined");
-				res.send("null");
-			}
-    	});
-    	connection.execSql(request);
+		execNoRowsReturned(request, res);
 	}
 };
