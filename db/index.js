@@ -58,11 +58,9 @@ module.exports = {
 	queryPost: (query, req, res) => {
 		var values = "";
 		Object.keys(req.body).forEach((key, i) => {
-			values += (i > 0) ? ", " : "";
-			values += "'" + req.body[key] + "'";
+			values += ((i > 0) ? ", " : "") + "'" + req.body[key] + "'";
 		});
-		query += "(" + values + ")";
-		execNoRowsReturned(query, res);
+		execNoRowsReturned(query + "(" + values + ")", res);
 	},
 	queryDelete: (query, req, res) => {
 		execNoRowsReturned(query, res);
