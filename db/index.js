@@ -7,7 +7,10 @@ const config = require('./config');
 var connection = new Connection(config.sqlconfig),
 	connected = false;
 
-function execNoRowsReturned(request, res) {
+function execNoRowsReturned(query, res) { // TODO: data model param?
+	var request = new Request(query, (err, rowCount, rows) => {
+		console.log(rowCount + ' row(s) affected');
+	});
 	request.on('doneInProc', (rowCount, more, rows) => {
     	if (rowCount > 0) {
     		res.send("Query succeeded");
@@ -53,22 +56,15 @@ module.exports = {
     	connection.execSql(request);
 	},
 	queryPost: (query, req, res) => {
-		var values = "(";
+		var values = "";
 		Object.keys(req.body).forEach((key, i) => {
 			values += (i > 0) ? ", " : "";
 			values += "'" + req.body[key] + "'";
 		});
-		values += ")";
-		console.log(values);
-		var request = new Request(query + values, (err, rowCount, rows) => {
-			console.log(rowCount + ' row(s) affected');
-		});
-		execNoRowsReturned(request, res);
+		query += "(" + values + ")";
+		execNoRowsReturned(query, res);
 	},
 	queryDelete: (query, req, res) => {
-		var request = new Request(query, (err, rowCount, rows) => {
-			console.log(rowCount + ' row(s) affected');
-		});
-		execNoRowsReturned(request, res);
+		execNoRowsReturned(query, res);
 	}
 };
