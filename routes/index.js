@@ -34,4 +34,9 @@ router.delete('/deleteUser/:netid', (req, res) => {
 	db.queryDelete("DELETE FROM USERS WHERE NETID='" + req.params.netid + "'", req, res);
 });
 
+// Handle HTTP Error 404 (page not found)
+router.get('*', (req, res) => {
+	res.status(404).send('<h1>Error 404: Page not found</h1>');
+});
+
 module.exports = router;
