@@ -25,7 +25,7 @@ router.get('/user/:netid', (req, res) => {
 });
 
 // POST new user
-router.post('/createUser', (req, res) => {
+router.post('/register', (req, res) => {
 	db.queryPost("INSERT INTO USERS VALUES ", req, res); // TODO: data model param?
 });
 
