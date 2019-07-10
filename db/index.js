@@ -62,6 +62,16 @@ module.exports = {
 		});
 		execNoRowsReturned(query + "(" + values + ")", res);
 	},
+	queryPut: (query, req, res) => {
+		// TODO
+	},
+	queryPatch: (query, req, res) => {
+		var values = "";
+		Object.keys(req.body).forEach((key, i) => {
+			values += ((i > 0) ? ", " : "") + key + "='" + req.body[key] + "'";
+		});
+		execNoRowsReturned(query.replace("()", values), res);
+	},
 	queryDelete: (query, req, res) => {
 		execNoRowsReturned(query, res);
 	}

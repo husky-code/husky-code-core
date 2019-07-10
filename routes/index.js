@@ -29,8 +29,18 @@ router.post('/register', (req, res) => {
 	db.queryPost("INSERT INTO USERS VALUES ", req, res); // TODO: data model param?
 });
 
+// PUT updated user information, must update all fields
+router.put('/user:netid', (req, res) => {
+	db.queryPut("UPDATE USERS SET () WHERE NETID='" + req.params.netid + "'", req, res);
+});
+
+// PATCH updated user information, does not need to update all fields
+router.patch('/user/:netid', (req, res) => {
+	db.queryPatch("UPDATE USERS SET () WHERE NETID='" + req.params.netid + "'", req, res);
+});
+
 // DELETE existing user
-router.delete('/deleteUser/:netid', (req, res) => {
+router.delete('/user/:netid', (req, res) => {
 	db.queryDelete("DELETE FROM USERS WHERE NETID='" + req.params.netid + "'", req, res);
 });
 
