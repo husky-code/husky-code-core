@@ -7,19 +7,17 @@ const config = require('./config');
 var connection = new Connection(config.sqlconfig),
 	connected = false;
 
-function execNoRowsReturned(query, res) { // TODO: data model param?
-	var request = new Request(query, (err, rowCount, rows) => {
-		console.log(rowCount + ' row(s) affected');
+function formatParams(params, includeKey) {
+	var result = "";
+	Object.keys(params).forEach((key, i) => {
+		result += ((i > 0) ? ", " : "") + ((includeKey === true) ? key.toUpperCase() + "=" : "") 
+			+ "'" + params[key] + "'";
 	});
-	request.on('doneInProc', (rowCount, more, rows) => {
-    	if (rowCount > 0) {
-    		res.send("Query succeeded");
-		} else {
-			console.log("Query result undefined");
-			res.send("null");
-		}
-    });
-	connection.execSql(request);
+	return result;
+}
+
+function getSpecificRows(length, params, includeKey) {
+	return ((length > 0) ? " WHERE " : "") + formatParams(params, includeKey);
 }
 
 module.exports = {
@@ -37,42 +35,34 @@ module.exports = {
 	connected: () => {
 		return connected;
 	},
-	queryGet: (query, model, req, res) => {
-		console.log('Reading rows from the Table...');
-    	var request = new Request(query, (err, rowCount, rows) => {
-    		console.log(rowCount + ' row(s) returned');
+	query: (model, req, res) => {
+		var paramsLength = Object.keys(req.params).length;
+		var query = "", result = "null";
+		if (req.method === "GET") {
+			query += "SELECT * FROM " + model.toUpperCase() + "S" + getSpecificRows(paramsLength, req.params, true)
+				+ " FOR JSON PATH, ROOT('" + model + "')";
+		} else if (req.method === "POST") {
+			query += "INSERT INTO " + model.toUpperCase() + "S VALUES (" + getSpecificRows(paramsLength, req.body, false) + ")";
+		} else if (req.method === "PUT") {
+			// TODO
+		} else if (req.method === "PATCH") {
+			query += "UPDATE " + model.toUpperCase() + "S SET ()" + getSpecificRows(paramsLength, req.params, true);
+			query = query.replace("()", formatParams(req.body, true));
+		} else if (req.method === "DELETE") {
+			query += "DELETE FROM " + model.toUpperCase() + "S" + getSpecificRows(paramsLength, req.params, true);
+		}
+		var request = new Request(query, (err, rowCount, rows) => {
+    		console.log(rowCount + ' row(s) affected');
     	});
     	request.on('doneInProc', (rowCount, more, rows) => {
     		if (rowCount > 0) {
-    			rows.forEach((row, i) => {
-    				console.log(row[i].value);
-    			});
-				res.send(JSON.parse(rows[0][0].value)[model]);
+    			var result = (req.method === "GET") ? JSON.parse(rows[0][0].value)[model] : "Query succeeded";
+    			res.send(result);
 			} else {
 				console.log("Query result undefined");
 				res.send("null");
 			}
     	});
     	connection.execSql(request);
-	},
-	queryPost: (query, req, res) => {
-		var values = "";
-		Object.keys(req.body).forEach((key, i) => {
-			values += ((i > 0) ? ", " : "") + "'" + req.body[key] + "'";
-		});
-		execNoRowsReturned(query + "(" + values + ")", res);
-	},
-	queryPut: (query, req, res) => {
-		// TODO
-	},
-	queryPatch: (query, req, res) => {
-		var values = "";
-		Object.keys(req.body).forEach((key, i) => {
-			values += ((i > 0) ? ", " : "") + key + "='" + req.body[key] + "'";
-		});
-		execNoRowsReturned(query.replace("()", values), res);
-	},
-	queryDelete: (query, req, res) => {
-		execNoRowsReturned(query, res);
 	}
 };
