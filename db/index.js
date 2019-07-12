@@ -16,7 +16,7 @@ function formatParams(params, includeKey) {
 	return result;
 }
 
-function getSpecificRows(length, params, includeKey) {
+function querySpecificRows(length, params, includeKey) {
 	return ((length > 0) ? " WHERE " : "") + formatParams(params, includeKey);
 }
 
@@ -37,27 +37,26 @@ module.exports = {
 	},
 	query: (model, req, res) => {
 		var paramsLength = Object.keys(req.params).length;
-		var query = "", result = "null";
+		var query = "";
 		if (req.method === "GET") {
-			query += "SELECT * FROM " + model.toUpperCase() + "S" + getSpecificRows(paramsLength, req.params, true)
+			query += "SELECT * FROM " + model.toUpperCase() + "S" + querySpecificRows(paramsLength, req.params, true)
 				+ " FOR JSON PATH, ROOT('" + model + "')";
 		} else if (req.method === "POST") {
-			query += "INSERT INTO " + model.toUpperCase() + "S VALUES (" + getSpecificRows(paramsLength, req.body, false) + ")";
+			query += "INSERT INTO " + model.toUpperCase() + "S VALUES (" + querySpecificRows(paramsLength, req.body, false) + ")";
 		} else if (req.method === "PUT") {
 			// TODO
 		} else if (req.method === "PATCH") {
-			query += "UPDATE " + model.toUpperCase() + "S SET ()" + getSpecificRows(paramsLength, req.params, true);
+			query += "UPDATE " + model.toUpperCase() + "S SET ()" + querySpecificRows(paramsLength, req.params, true);
 			query = query.replace("()", formatParams(req.body, true));
 		} else if (req.method === "DELETE") {
-			query += "DELETE FROM " + model.toUpperCase() + "S" + getSpecificRows(paramsLength, req.params, true);
+			query += "DELETE FROM " + model.toUpperCase() + "S" + querySpecificRows(paramsLength, req.params, true);
 		}
 		var request = new Request(query, (err, rowCount, rows) => {
     		console.log(rowCount + ' row(s) affected');
     	});
     	request.on('doneInProc', (rowCount, more, rows) => {
     		if (rowCount > 0) {
-    			var result = (req.method === "GET") ? JSON.parse(rows[0][0].value)[model] : "Query succeeded";
-    			res.send(result);
+    			res.send((req.method === "GET") ? JSON.parse(rows[0][0].value)[model] : "Query succeeded");
 			} else {
 				console.log("Query result undefined");
 				res.send("null");
