@@ -10,7 +10,7 @@ var connection = new Connection(config.sqlconfig),
 function formatParams(params, includeKey) {
 	var result = "";
 	Object.keys(params).forEach((key, i) => {
-		result += ((i > 0) ? ", " : "") + ((includeKey === true) ? key.toUpperCase() + "=" : "") 
+		result += ((i > 0) ? ", " : "") + (includeKey ? key.toUpperCase() + "=" : "") 
 			+ "'" + params[key] + "'";
 	});
 	return result;
@@ -46,8 +46,8 @@ module.exports = {
 		} else if (req.method === "PUT") {
 			// TODO
 		} else if (req.method === "PATCH") {
-			query += "UPDATE " + model.toUpperCase() + "S SET ()" + querySpecificRows(paramsLength, req.params, true);
-			query = query.replace("()", formatParams(req.body, true));
+			query += "UPDATE " + model.toUpperCase() + "S SET " + formatParams(req.body, true) 
+				+ querySpecificRows(paramsLength, req.params, true);
 		} else if (req.method === "DELETE") {
 			query += "DELETE FROM " + model.toUpperCase() + "S" + querySpecificRows(paramsLength, req.params, true);
 		}
