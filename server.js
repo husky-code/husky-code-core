@@ -12,6 +12,8 @@ if (!db.connected()) {
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static("images"));
+// app.use(express.static("public"));
 // app.set('view engine', 'jsx');
 // app.engine('jsx', require('express-react-views').createEngine());
 
