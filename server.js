@@ -3,7 +3,12 @@ var express = require('express'),
 	routes = require('./routes'),
 	logger = require('morgan'),
 	bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000,
+	db = require('./db');
+	
+if (!db.connected()) {
+	db.init();
+}
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
