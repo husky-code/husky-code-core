@@ -5,7 +5,7 @@ var express = require('express'),
 const db = require('../db'),
 	BCRYPT_SALT_ROUNDS = 12;
 	
-// TODO: const User = require('../models/user') // or something
+const User = db.User;
 
 router.get('/', (req, res) => {
 	res.send('<h1>Hello, world!</h1>');
@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 
 // GET all users
 router.get('/users', (req, res) => { // For dev purposes only
-	//db.query('user', req, res);
 	User.findAll().then(users => {
 		res.send(users);
 	});
@@ -23,7 +22,6 @@ router.get('/users', (req, res) => { // For dev purposes only
 
 // GET user by id
 router.get('/user/:netid', (req, res) => {
-	//db.query('user', req, res);
 	User.findByPk(req.params.netid).then(user => {
 		res.send(user);
 	});
@@ -39,7 +37,7 @@ router.post('/register', (req, res) => {
 		class: req.body.class,
 		passwd: req.body.passwd
 	};
-	if (netid === '' || firstname === '' || lastname === '' || passwd === '') {
+	if (data.netid === '' || data.firstname === '' || data.lastname === '' || data.passwd === '') {
 		res.json("Missing required information");
 	}
 	User.findOne({

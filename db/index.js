@@ -3,7 +3,8 @@
 // 	TYPES = require('tedious').TYPES;
 var Sequelize = require('sequelize');
 
-const config = require('./config');
+const config = require('./config'),
+	UserModel = require('../models/user');
 
 var connected = false;
 
@@ -15,8 +16,18 @@ const sequelize = new Sequelize(config.options.database, config.authentication.o
 		options: {
 			encrypt: true
 		}
+	},
+	define: {
+		// defaultScope: {
+// 			attributes: {
+// 				exclude: ['createdAt', 'updatedAt']
+// 			}
+// 		},
+		timestamps: false
 	}
 });
+
+sequelize.sync().then(); // may switch to db migration for production
 
 module.exports = {
 	init: () => {
@@ -29,7 +40,8 @@ module.exports = {
 	},
 	connected: () => {
 		return connected;
-	}
+	},
+	User: UserModel(sequelize, Sequelize)
 };
 
 // Create connection to database
