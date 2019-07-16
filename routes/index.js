@@ -1,6 +1,8 @@
 var express = require('express'),
 	router = express.Router();
 
+const db = require('../db');
+
 router.get('/', (req, res) => {
 	res.send('<h1>Hello, world!</h1>');
 });
@@ -9,12 +11,18 @@ router.get('/', (req, res) => {
 
 // GET all users
 router.get('/users', (req, res) => { // For dev purposes only
-	db.query('user', req, res);
+	//db.query('user', req, res);
+	User.findAll().then(users => {
+		res.send(users);
+	});
 });
 
 // GET user by id
 router.get('/user/:netid', (req, res) => {
-	db.query('user', req, res);
+	//db.query('user', req, res);
+	User.findByPk(req.params.netid).then(user => {
+		res.send(user);
+	});
 });
 
 // POST new user
