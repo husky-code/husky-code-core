@@ -14,7 +14,7 @@ const sequelize = new Sequelize(config.options.database, config.authentication.o
 	dialect: 'mssql',
 	dialectOptions: {
 		options: {
-			encrypt: true
+			encrypt: config.options.encrypt
 		}
 	},
 	define: {

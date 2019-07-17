@@ -3,9 +3,8 @@ var express = require('express'),
 	bcrypt = require('bcrypt');
 
 const db = require('../db'),
-	BCRYPT_SALT_ROUNDS = 12;
-	
-const User = db.User;
+	BCRYPT_SALT_ROUNDS = 12,
+	Users = db.User;
 
 router.get('/', (req, res) => {
 	res.send('<h1>Hello, world!</h1>');
@@ -15,14 +14,14 @@ router.get('/', (req, res) => {
 
 // GET all users
 router.get('/users', (req, res) => { // For dev purposes only
-	User.findAll().then(users => {
+	Users.findAll().then(users => {
 		res.send(users);
 	});
 });
 
 // GET user by id
 router.get('/user/:netid', (req, res) => {
-	User.findByPk(req.params.netid).then(user => {
+	Users.findByPk(req.params.netid).then(user => {
 		res.send(user);
 	});
 });
@@ -39,7 +38,7 @@ router.post('/register', (req, res) => {
 	if (data.netid === '' || data.firstname === '' || data.lastname === '' || data.passwd === '') {
 		res.json("Missing required information");
 	}
-	User.findOne({
+	Users.findOne({
 		where: {
 			netid: data.netid
 		}	
@@ -50,7 +49,7 @@ router.post('/register', (req, res) => {
 		} else {
 			bcrypt.hash(data.passwd, BCRYPT_SALT_ROUNDS).then((hashedPasswd) => {
 				//console.log(hashedPasswd);
-				User.create({
+				Users.create({
 					netid: data.netid,
 					firstname: data.firstname,
 					lastname: data.lastname,
@@ -75,27 +74,27 @@ router.put('/user:netid', (req, res) => {
 
 // PATCH updated user information, does not need to update all fields
 router.patch('/user/:netid', (req, res) => {
-	// User.findOne().then();
+	// Users.findOne().then();
 	// temporarily just updating password, need to generalize PATCH for all fields
 	// JSON push array?
-	User.update({passwd: req.body.passwd}, {
+	Users.update({passwd: req.body.passwd}, {
 		where: {
 			netid: req.params.netid
 		}
 	}).then(() => {
 		res.send('Query succeeded');
-	});
+	}); // error handling?
 });
 
 // DELETE existing user
 router.delete('/user/:netid', (req, res) => {
-	User.destroy({
+	Users.destroy({
 		where: {
 			netid: req.params.netid
 		}
 	}).then(() => {
 		res.send('Query succeeded');
-	});
+	}); // error handling?
 });
 
 // Handle HTTP Error 404 (page not found)
