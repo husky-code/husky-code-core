@@ -29,7 +29,6 @@ router.get('/user/:netid', (req, res) => {
 
 // POST new user
 router.post('/register', (req, res) => {
-	//db.query('user', req, res);
 	const data = {
 		netid: req.body.netid,
 		firstname: req.body.firstname,
@@ -50,13 +49,14 @@ router.post('/register', (req, res) => {
 			res.json("user already exists");
 		} else {
 			bcrypt.hash(data.passwd, BCRYPT_SALT_ROUNDS).then((hashedPasswd) => {
-				console.log(hashedPasswd);
+				//console.log(hashedPasswd);
 				User.create({
 					netid: data.netid,
 					firstname: data.firstname,
 					lastname: data.lastname,
 					class: data.class,
-					passwd: hashedPasswd
+					//passwd: hashedPasswd
+					passwd: data.passwd
 				});
 			}).then(() => {
 				console.log('user created');
@@ -75,12 +75,27 @@ router.put('/user:netid', (req, res) => {
 
 // PATCH updated user information, does not need to update all fields
 router.patch('/user/:netid', (req, res) => {
-	//db.query('user', req, res);
+	// User.findOne().then();
+	// temporarily just updating password, need to generalize PATCH for all fields
+	// JSON push array?
+	User.update({passwd: req.body.passwd}, {
+		where: {
+			netid: req.params.netid
+		}
+	}).then(() => {
+		res.send('Query succeeded');
+	});
 });
 
 // DELETE existing user
 router.delete('/user/:netid', (req, res) => {
-	//db.query('user', req, res);
+	User.destroy({
+		where: {
+			netid: req.params.netid
+		}
+	}).then(() => {
+		res.send('Query succeeded');
+	});
 });
 
 // Handle HTTP Error 404 (page not found)
