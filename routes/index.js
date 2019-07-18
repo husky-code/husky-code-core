@@ -15,14 +15,26 @@ router.get('/', (req, res) => {
 // GET all users
 router.get('/users', (req, res) => { // For dev purposes only
 	Users.findAll().then(users => {
-		res.send(users);
+		if (users == null) {
+			res.json('no existing users');
+		} else {
+			res.send(users);
+		}
+	}).catch(err => {
+		res.status(500).json(err);
 	});
 });
 
 // GET user by id
 router.get('/user/:netid', (req, res) => {
 	Users.findByPk(req.params.netid).then(user => {
-		res.send(user);
+		if (user == null) {
+			res.json('user does not exist');
+		} else {
+			res.send(user);
+		}
+	}).catch(err => {
+		res.status(500).json(err);
 	});
 });
 
@@ -74,34 +86,59 @@ router.put('/user:netid', (req, res) => {
 
 // PATCH updated user information, does not need to update all fields
 router.patch('/user/:netid', (req, res) => {
-	var json = "";
-	Object.keys(req.body).forEach((key, i) => {
-		json += (i > 0 ? ',' : '') + '"' + key + '":"' + req.body[key] + '"';
-	});
-	// Users.findOne().then(); // error handling
-	Users.update(JSON.parse('{' + json + '}'), {
+	Users.findOne({
 		where: {
 			netid: req.params.netid
 		}
-	}).then(() => {
-		res.send('Query succeeded');
-	}); // error handling?
+	}).then(user => {
+		if (user == null) {
+			console.log('user does not exist');
+			res.json('user does not exist');
+		} else {
+			var json = "";
+			Object.keys(req.body).forEach((key, i) => {
+				json += (i > 0 ? ',' : '') + '"' + key + '":"' + req.body[key] + '"';
+			});
+			Users.update(JSON.parse('{' + json + '}'), {
+				where: {
+					netid: req.params.netid
+				}
+			}).then(() => {
+				res.send('Query succeeded');
+			});
+		}
+	}).catch(err => {
+		res.status(500).json(err);
+	});
 });
 
 // DELETE existing user
 router.delete('/user/:netid', (req, res) => {
-	Users.destroy({
+	Users.findOne({
 		where: {
 			netid: req.params.netid
 		}
-	}).then(() => {
-		res.send('Query succeeded');
-	}); // error handling?
+	}).then(user => {
+		if (user == null) {
+			console.log('user does not exist');
+			res.json('user does not exist');
+		} else {
+			Users.destroy({
+				where: {
+					netid: req.params.netid
+				}
+			}).then(() => {
+				res.send('Query succeeded');
+			});
+		}
+	}).catch(err => {
+		res.status(500).json(err);
+	});
 });
 
 // Handle HTTP Error 404 (page not found)
 router.get('*', (req, res) => {
-	res.status(404).send('<h1>Error 404: Page not found</h1>');
+	res.status(404).send('<h1>Error 404: Page not found</h1><hr>');
 });
 
 module.exports = router;
