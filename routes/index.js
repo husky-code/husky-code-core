@@ -48,7 +48,7 @@ router.post('/register', (req, res) => {
 		passwd: req.body.passwd
 	};
 	if (data.netid === '' || data.firstname === '' || data.lastname === '' || data.passwd === '') {
-		res.json("Missing required information");
+		res.json('Missing required information');
 	}
 	Users.findOne({
 		where: {
@@ -56,8 +56,8 @@ router.post('/register', (req, res) => {
 		}	
 	}).then(user => {
 		if (user != null) {
-			console.log("user already exists");
-			res.json("user already exists");
+			console.log('user already exists');
+			res.json('user already exists');
 		} else {
 			bcrypt.hash(data.passwd, BCRYPT_SALT_ROUNDS).then((hashedPasswd) => {
 				//console.log(hashedPasswd);
