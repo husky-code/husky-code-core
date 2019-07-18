@@ -74,10 +74,12 @@ router.put('/user:netid', (req, res) => {
 
 // PATCH updated user information, does not need to update all fields
 router.patch('/user/:netid', (req, res) => {
-	// Users.findOne().then();
-	// temporarily just updating password, need to generalize PATCH for all fields
-	// JSON push array?
-	Users.update({passwd: req.body.passwd}, {
+	var json = "";
+	Object.keys(req.body).forEach((key, i) => {
+		json += (i > 0 ? ',' : '') + '"' + key + '":"' + req.body[key] + '"';
+	});
+	// Users.findOne().then(); // error handling
+	Users.update(JSON.parse('{' + json + '}'), {
 		where: {
 			netid: req.params.netid
 		}
