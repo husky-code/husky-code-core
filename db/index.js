@@ -13,15 +13,15 @@ const sequelize = new Sequelize(config.options.database, config.authentication.o
 		options: {
 			encrypt: config.options.encrypt
 		}
-	},
-	define: {
-		// defaultScope: {
+	}
+// 	,define: {
+// 	   	defaultScope: {
 // 			attributes: {
 // 				exclude: ['createdAt', 'updatedAt']
 // 			}
 // 		},
-		timestamps: false
-	}
+// 		timestamps: false
+// 	}
 });
 
 sequelize.sync().then(); // may switch to db migration for production
