@@ -7,11 +7,16 @@ const db = require('../db'),
 	Users = db.User;
 
 router.get('/', (req, res) => {
+	// TODO: authentication, redirect to login/register
 	res.send('<h1>Hello, world!</h1>');
 });
 
 /* Models routes */
 router.use('/users', require('./users'));
+
+router.post('/login', (req, res) => {
+	// TODO: create JWT auth token; use Passport?
+});
 
 // Register new user
 router.post('/register', (req, res) => {
@@ -28,20 +33,19 @@ router.post('/register', (req, res) => {
 	Users.findOne({
 		where: {
 			netid: data.netid
-		}	
+		}
 	}).then(user => {
 		if (user != null) {
 			console.log('user already exists');
 			res.json('user already exists');
 		} else {
-			bcrypt.hash(data.passwd, BCRYPT_SALT_ROUNDS).then((hashedPasswd) => {
+			bcrypt.hash(data.passwd, BCRYPT_SALT_ROUNDS).then(hash => {
 				Users.create({
 					netid: data.netid,
 					firstname: data.firstname,
 					lastname: data.lastname,
 					class: data.class,
-					//passwd: hashedPasswd
-					passwd: data.passwd
+					passwd: hash
 				});
 			}).then(() => {
 				console.log('user created');
@@ -51,6 +55,10 @@ router.post('/register', (req, res) => {
 	}).catch(err => {
 		res.status(500).json(err);
 	});
+});
+
+router.delete('/logout', (req, res) => {
+	// TODO: delete JWT auth token; use Passport?
 });
 
 // Handle HTTP Error 404 (page not found)

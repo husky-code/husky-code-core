@@ -48,6 +48,7 @@ router.patch('/:netid', (req, res) => {
 		} else {
 			var json = "";
 			Object.keys(req.body).forEach((key, i) => {
+				// TODO: bcrypt hashing for PATCH update			
 				json += (i > 0 ? ',' : '') + '"' + key + '":"' + req.body[key] + '"';
 			});
 			Users.update(JSON.parse('{' + json + '}'), {
