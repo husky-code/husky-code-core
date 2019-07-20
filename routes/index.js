@@ -2,8 +2,6 @@ var express = require('express'),
 	router = express.Router(),
 	bcrypt = require('bcrypt');
 
-const users = require('./users');
-
 const db = require('../db'),
 	BCRYPT_SALT_ROUNDS = 12,
 	Users = db.User;
@@ -13,7 +11,7 @@ router.get('/', (req, res) => {
 });
 
 /* Models routes */
-router.use('/users', users);
+router.use('/users', require('./users'));
 
 // Register new user
 router.post('/register', (req, res) => {
@@ -37,7 +35,6 @@ router.post('/register', (req, res) => {
 			res.json('user already exists');
 		} else {
 			bcrypt.hash(data.passwd, BCRYPT_SALT_ROUNDS).then((hashedPasswd) => {
-				//console.log(hashedPasswd);
 				Users.create({
 					netid: data.netid,
 					firstname: data.firstname,

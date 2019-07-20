@@ -17,7 +17,6 @@ module.exports = (sequelize, type) => {
 			type: type.STRING
 		},
 		passwd: {
-			//type: type.STRING.BINARY,
 			type: type.STRING,
 			allowNull: false
 		}
