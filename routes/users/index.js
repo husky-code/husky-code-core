@@ -1,7 +1,9 @@
 var express = require('express'),
-	router = express.Router();
+	router = express.Router(),
+	bcrypt = require('bcrypt');
 
 const db = require('../../db'),
+	BCRYPT_SALT_ROUNDS = 12,
 	Users = db.User;
 	
 // GET all users
@@ -48,7 +50,15 @@ router.patch('/:netid', (req, res) => {
 		} else {
 			var json = "";
 			Object.keys(req.body).forEach((key, i) => {
-				// TODO: bcrypt hashing for PATCH update			
+			// TODO: PATCH BCRYPT HASH
+// 				var val = req.body[key];
+// 				if (key === 'passwd') {
+// 					bcrypt.hash(val, BCRYPT_SALT_ROUNDS).then(hash => {
+// 						val = hash;
+// 						console.log(val);
+// 					});
+// 				}
+// 				json += (i > 0 ? ',' : '') + '"' + key + '":"' + val + '"';
 				json += (i > 0 ? ',' : '') + '"' + key + '":"' + req.body[key] + '"';
 			});
 			Users.update(JSON.parse('{' + json + '}'), {
