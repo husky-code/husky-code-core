@@ -16,6 +16,21 @@ router.use('/users', require('./users'));
 
 router.post('/login', (req, res) => {
 	// TODO: create JWT auth token; use Passport?
+	// if (Object.keys(req.body)['netid'] === undefined) {
+// 		res.send('Missing required info');
+// 	}
+	Users.findByPk(req.body.netid).then(user => {
+		if (user == null) {
+			res.send('Username does not exist');
+		} else {
+			bcrypt.compare(req.body.passwd, user.passwd).then(result => {
+				// TODO: create JWT auth token
+				res.send(result);
+			});
+		}
+	}).catch(err => {
+		res.status(500).send(err);
+	});
 });
 
 // Register new user
