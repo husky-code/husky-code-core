@@ -16,21 +16,27 @@ router.use('/users', require('./users'));
 
 router.post('/login', (req, res) => {
 	// TODO: create JWT auth token; use Passport?
-	// if (Object.keys(req.body)['netid'] === undefined) {
-// 		res.send('Missing required info');
-// 	}
-	Users.findByPk(req.body.netid).then(user => {
-		if (user == null) {
-			res.send('Username does not exist');
-		} else {
-			bcrypt.compare(req.body.passwd, user.passwd).then(result => {
-				// TODO: create JWT auth token
-				res.send(result);
-			});
-		}
-	}).catch(err => {
-		res.status(500).send(err);
-	});
+	if (!(req.body.hasOwnProperty('netid')) || !(req.body.hasOwnProperty('passwd'))) {
+		res.send('Missing required info');
+	} else {
+		Users.findByPk(req.body.netid).then(user => {
+			if (user == null) {
+				res.send('Username does not exist');
+			} else {
+				bcrypt.compare(req.body.passwd, user.passwd).then(result => {
+					if (result) {
+						// TODO: create JWT auth token
+						// TODO: redirect to dashboard
+						res.redirect('/');
+					} else {
+						res.send('Invalid login. Username and password do not match');
+					}
+				});
+			}
+		}).catch(err => {
+			res.status(500).send(err);
+		});
+	}
 });
 
 // Register new user
