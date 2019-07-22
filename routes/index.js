@@ -1,6 +1,7 @@
 var express = require('express'),
 	router = express.Router(),
-	bcrypt = require('bcrypt');
+	bcrypt = require('bcrypt'),
+	middleware = require('../config/middleware');
 
 const db = require('../db'),
 	BCRYPT_SALT_ROUNDS = 12,
@@ -8,7 +9,10 @@ const db = require('../db'),
 
 router.get('/', (req, res) => {
 	// TODO: authentication, redirect to login/register
-	res.send('<h1>Hello, world!</h1>');
+//  if (middleware.isAuthenticated) {
+// 		res.redirect('/dashboard');
+// 	}
+	res.send('<h1>Hello World!</h1>');
 });
 
 /* Models routes */
