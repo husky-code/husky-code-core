@@ -30,8 +30,8 @@ router.post('/login', (req, res) => {
 				bcrypt.compare(req.body.passwd, user.passwd).then(result => {
 					if (result) {
 						// TODO: create JWT auth token
-						// TODO: redirect to dashboard
-						res.redirect('/');
+						// TODO: redirect to /dashboard
+						res.redirect('/'); // temporary?
 					} else {
 						res.send('Invalid login. Username and password do not match');
 					}
@@ -71,10 +71,10 @@ router.post('/register', (req, res) => {
 					lastname: data.lastname,
 					class: data.class,
 					passwd: hash
+				}).then(newUser => {
+					console.log('user created');
+					res.json({user: newUser, msg: 'user created'});
 				});
-			}).then(() => {
-				console.log('user created');
-				res.json('user created');
 			});
 		}
 	}).catch(err => {
