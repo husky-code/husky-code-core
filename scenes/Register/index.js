@@ -14,7 +14,9 @@ class Register extends React.Component {
 			password: '',
 			confirmPassword: '',
 			errorMessage: null
-		}
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 	onSubmit(e) {
 		e.preventDefault();
@@ -26,69 +28,60 @@ class Register extends React.Component {
 			passwd: this.state.password
 		});
 	}
-	onNetIDChanged(e) {
-		this.setState({netid: e.target.value});
-	}
-	onFirstNameChanged(e) {
-		this.setState({firstname: e.target.value});
-	}
-	onLastNameChanged(e) {
-		this.setState({lastname: e.target.value});
-	}
-	onClassChanged(e) {
-		this.setState({class: e.target.value});
-	}
-	onPasswordChanged(e) {
-		this.setState({password: e.target.value});
-	}
-	onConfirmPasswordChanged(e) {
-		this.setState({confirmPassword: e.target.value});
+	handleChange(e) {
+		this.setState({[e.target.name]: e.target.value});
 	}
 	render() {
 		return (
 			<div>
-				<form className="login" onSubmit={this.onSubmit.bind(this)}>
+				<form className="login" onSubmit={this.onSubmit}>
 					<div className="login-fields">
 						<input
 							type="text"
 							className="field"
+							name="netid"
+							onChange={this.handleChange}
 							placeholder="NetID"
-							onChange={this.onNetIDChanged.bind(this)}
 							required="required"
 						/>
 						<input
 							type="text"
 							className="field"
+							name="firstname"
+							onChange={this.handleChange}
 							placeholder="First Name"
-							onChange={this.onFirstNameChanged.bind(this)}
 							required="required"
 						/>
 						<input
 							type="text"
 							className="field"
+							name="lastname"
+							onChange={this.handleChange}
 							placeholder="Last Name"
-							onChange={this.onLastNameChanged.bind(this)}
 							required="required"
 						/>
 						<input
 							type="text"
 							className="field"
+							name="class"
+							onChange={this.handleChange}
 							placeholder="Class"
-							onChange={this.onClassChanged.bind(this)}
 							required="required"
 						/>
 						<input
 							type="password"
 							className="field"
+							name="password"
+							onChange={this.handleChange}
 							placeholder="Password"
-							onChange={this.onPasswordChanged.bind(this)}
 							required="required"
 						/>
 						<input
 							type="password"
 							className="field"
+							name="confirmPassword"
+							onChange={this.handleChange}
 							placeholder="Confirm Password"
-							onChange={this.onConfirmPasswordChanged.bind(this)}
 							required="required"
 						/>
 					</div>
