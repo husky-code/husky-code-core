@@ -6,11 +6,13 @@ module.exports = {
    entry: './main.js',
    output: {
       path: path.join(__dirname, '/bundle'),
-      filename: 'index_bundle.js'
+      filename: 'index_bundle.js',
+      publicPath: '/'
    },
    devServer: {
       inline: true,
-      port: 8080
+      port: 8080,
+      historyApiFallback: true
    },
    module: {
       rules: [
@@ -27,6 +29,9 @@ module.exports = {
          	use: ['style-loader', 'css-loader']
          }
       ]
+   },
+   node: {
+   	fs: 'empty'
    },
    plugins:[
       new HtmlWebpackPlugin({

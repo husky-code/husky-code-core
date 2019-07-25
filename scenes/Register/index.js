@@ -1,5 +1,6 @@
 import React from 'react';
-import Actions from '../../actions';
+import Reflux from 'reflux';
+import { login, register } from '../../actions';
 import Store from '../../store';
 
 class Register extends React.Component {
@@ -17,7 +18,7 @@ class Register extends React.Component {
 	}
 	onSubmit(e) {
 		e.preventDefault();
-		Actions.register({
+		register({
 			netid: this.state.netid,
 			firstname: this.state.firstname,
 			lastname: this.state.lastname,

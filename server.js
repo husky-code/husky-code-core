@@ -2,7 +2,8 @@ var express = require('express'),
 	app = express(),
 	routes = require('./routes'),
 	logger = require('morgan'),
-	bodyParser = require('body-parser');
+	bodyParser = require('body-parser'),
+	cors = require('cors');
 const PORT = process.env.PORT || 3000,
 	db = require('./db');
 	
@@ -15,6 +16,7 @@ if (!db.connected()) {
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 // app.use(express.static("images"));
 // app.use(express.static("public"));
 // app.set('view engine', 'jsx');

@@ -1,18 +1,21 @@
-import Reflux from 'reflux';
-import { login, register } from '../endpoints';
+import request from 'request';
 
-const Actions = Reflux.createActions({
-	login: {children: ['completed', 'failed']},
-	register: {children: ['completed']}
-});
+const URL = "http://localhost:3000";
 
-Actions.login.listen((credentials) => {
-	return login(credentials).then(this.completed).catch(this.failed);
-});
+export function login(credentials) {
+	return request.post(`${URL}/login`).form({
+		netid: credentials.netid,
+		passwd: credentials.passwd
+	});
+};
 
-Actions.register.listen((credentials) => {
-	this.progressed();
-	return register(credentials).then(this.completed).catch(this.completed);
-});
-
-export default Actions;
+export function register(credentials) {
+	//console.dir(credentials);
+	return request.post(`${URL}/register`).form({
+		netid: credentials.netid,
+		firstname: credentials.firstname,
+		lastname: credentials.lastname,
+		class: credentials.class,
+		passwd: credentials.passwd
+	});
+}

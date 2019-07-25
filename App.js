@@ -24,7 +24,7 @@ class App extends React.Component {
             	<Route path="/interviewprep" component={InterviewPrep}/>
             	<Route path="/dashboard" component={Dashboard}/>
             	<Route path="/login" component={Login}/>
-            	<Routh path="/register" component={Register}/>
+            	<Route path="/register" component={Register}/>
         	</div>
     	);
 	}

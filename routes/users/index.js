@@ -50,7 +50,7 @@ router.patch('/:netid', (req, res) => {
 		} else {
 			var json = "";
 			Object.keys(req.body).forEach((key, i) => {
-			// TODO: PATCH BCRYPT HASH
+			// TODO: PATCH BCRYPT HASH, try bcrypt.hashSync(...)
 // 				var val = req.body[key];
 // 				if (key === 'passwd') {
 // 					bcrypt.hash(val, BCRYPT_SALT_ROUNDS).then(hash => {
