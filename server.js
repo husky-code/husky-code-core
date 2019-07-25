@@ -6,6 +6,9 @@ var express = require('express'),
 const PORT = process.env.PORT || 3000,
 	db = require('./db');
 	
+// const passport = require('passport'),
+// 	passportJWT = require('passport-jwt');
+	
 if (!db.connected()) {
 	db.init();
 }
