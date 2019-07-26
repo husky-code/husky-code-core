@@ -3,6 +3,7 @@ import { login, register } from '../../services/api';
 import Store from '../../store';
 import './index.css';
 
+// Convert to generic UserForm component with routing between login and register?
 class Register extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -66,7 +67,6 @@ class Register extends React.Component {
 							name="class"
 							onChange={this.handleChange}
 							placeholder="Class"
-							required="required"
 						/>
 						<input
 							type="password"
@@ -88,7 +88,9 @@ class Register extends React.Component {
 					{
 						this.state.errorMessage !== null ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null
 					}
-					<input type="submit" className="login-button" value="Create Account" />
+					<div className="login-submit">
+						<input type="submit" className="login-button" value="Create Account" />
+					</div>
 				</form>
 			</div>
 		);
