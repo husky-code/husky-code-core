@@ -1,6 +1,7 @@
 import React from 'react';
 import { login, register } from '../../services/api';
 import Store from '../../store';
+import './index.css';
 
 class Register extends React.Component {
 	constructor(props, context) {
@@ -32,9 +33,9 @@ class Register extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="user-box">
 				<form className="login" onSubmit={this.onSubmit}>
-					<div className="login-fields">
+					<div className="user-fields">
 						<input
 							type="text"
 							className="field"

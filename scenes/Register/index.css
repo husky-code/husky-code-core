@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+.field {
+	display: inline-block;
+	font-size: 14px;
+	height: 25px;
+	margin: 20px auto;
+	width: 100%;
+}
+
+.login {
+	background-color: blue;
+	margin: auto;
+}
+
+.login-button {
+	font-size: 14px;
+	height: 20px;
+	margin: 0 30%;
+	width: 40%;
+}
+
+.user-box {
+	border: 1px solid black;
+	border-radius: 4px;
+	height: 50%;
+	margin: auto;
+	width: 50%;
+}
+
+.user-fields {
+	width: 40%;
+	margin: auto;
+}
