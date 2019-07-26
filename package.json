@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.2",
-    "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
@@ -41,6 +40,7 @@
     "react-scripts": "^3.0.1",
     "reflux": "^6.4.1",
     "request": "^2.88.0",
+    "request-promise": "^4.2.4",
     "sequelize": "^5.10.1",
     "tar": "^4.4.10",
     "tedious": "^5.0.3",

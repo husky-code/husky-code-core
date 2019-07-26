@@ -1,4 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+var request = require('request-promise');
 
-//const client = {};
+const URL = 'http://localhost:8080/api';
+
+export function login(credentials) {
+	return request.post(`${URL}/login`).form({
+		netid: credentials.netid,
+		passwd: credentials.passwd
+	});
+};
+
+export function register(credentials) {
+	request.post(`${URL}/register`).form({
+		netid: credentials.netid,
+		firstname: credentials.firstname,
+		lastname: credentials.lastname,
+		class: credentials.class,
+		passwd: credentials.passwd
+	}).then(response => {
+		console.log(response);
+		return response;
+	}).catch(err => {
+		console.log(err);
+	});
+};

@@ -12,7 +12,10 @@ module.exports = {
    devServer: {
       inline: true,
       port: 8080,
-      historyApiFallback: true
+      historyApiFallback: true,
+      proxy: {
+      	'/api': 'http://localhost:3000'
+      }
    },
    module: {
       rules: [

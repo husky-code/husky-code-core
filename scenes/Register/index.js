@@ -1,6 +1,5 @@
 import React from 'react';
-import Reflux from 'reflux';
-import { login, register } from '../../actions';
+import { login, register } from '../../services/api';
 import Store from '../../store';
 
 class Register extends React.Component {
