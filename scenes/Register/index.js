@@ -3,7 +3,7 @@ import { login, register } from '../../services/api';
 import Store from '../../store';
 import './index.css';
 
-// Convert to generic UserForm component with routing between login and register?
+// TODO: convert to generic UserForm component with routing between login and register?
 class Register extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -21,6 +21,7 @@ class Register extends React.Component {
 	}
 	onSubmit(e) {
 		e.preventDefault();
+		// TODO: route to home or through login when registered
 		register({
 			netid: this.state.netid,
 			firstname: this.state.firstname,
