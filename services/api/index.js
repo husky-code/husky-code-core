@@ -1,6 +1,6 @@
 var request = require('request-promise');
 
-const URL = 'http://localhost:8080/api';
+const URL = 'http://localhost:3000/api';
 
 export function login(credentials) {
 	return request.post(`${URL}/login`).form({
