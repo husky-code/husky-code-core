@@ -13,7 +13,7 @@ class Register extends React.Component {
 			lastname: '',
 			class: '',
 			password: '',
-			confirmPassword: '',
+			confirmpassword: '',
 			errorMessage: null
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -80,7 +80,7 @@ class Register extends React.Component {
 						<input
 							type="password"
 							className="field"
-							name="confirmPassword"
+							name="confirmpassword"
 							onChange={this.handleChange}
 							placeholder="Confirm Password"
 							required="required"
