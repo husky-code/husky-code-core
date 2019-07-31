@@ -18,6 +18,7 @@ class Register extends React.Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.renderFormInput = this.renderFormInput.bind(this);
 	}
 	onSubmit(e) {
 		e.preventDefault();
@@ -33,62 +34,29 @@ class Register extends React.Component {
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});
 	}
+	renderFormInput(type, className, placeholder, required) {
+		return <input
+			type={type}
+			className={className}
+			name={placeholder.toLowerCase().replace(/\s+/g, "")}
+			onChange={this.handleChange}
+			placeholder={placeholder}
+			required={required}
+		/>
+	}
 	render() {
 		return (
 			<div className="user-box">
 				<form className="login" onSubmit={this.onSubmit}>
 					<div className="user-fields">
-						<input
-							type="text"
-							className="field"
-							name="netid"
-							onChange={this.handleChange}
-							placeholder="NetID"
-							required="required"
-						/>
-						<input
-							type="text"
-							className="field"
-							name="firstname"
-							onChange={this.handleChange}
-							placeholder="First Name"
-							required="required"
-						/>
-						<input
-							type="text"
-							className="field"
-							name="lastname"
-							onChange={this.handleChange}
-							placeholder="Last Name"
-							required="required"
-						/>
-						<input
-							type="text"
-							className="field"
-							name="class"
-							onChange={this.handleChange}
-							placeholder="Class"
-						/>
-						<input
-							type="password"
-							className="field"
-							name="password"
-							onChange={this.handleChange}
-							placeholder="Password"
-							required="required"
-						/>
-						<input
-							type="password"
-							className="field"
-							name="confirmpassword"
-							onChange={this.handleChange}
-							placeholder="Confirm Password"
-							required="required"
-						/>
+						{this.renderFormInput("text", "field", "NetID", "required")}
+						{this.renderFormInput("text", "field", "First Name", "required")}
+						{this.renderFormInput("text", "field", "Last Name", "required")}
+						{this.renderFormInput("text", "field", "Class", "required")}
+						{this.renderFormInput("password", "field", "Password", "required")}
+						{this.renderFormInput("password", "field", "Confirm Password", "required")}
 					</div>
-					{
-						this.state.errorMessage !== null ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null
-					}
+					{this.state.errorMessage !== null ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null}
 					<div className="login-submit">
 						<input type="submit" className="login-button" value="Create Account" />
 					</div>
