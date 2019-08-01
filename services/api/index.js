@@ -3,9 +3,14 @@ var request = require('request-promise');
 const URL = 'http://localhost:3000/api';
 
 export function login(credentials) {
-	return request.post(`${URL}/login`).form({
+	request.post(`${URL}/login`).form({
 		netid: credentials.netid,
 		passwd: credentials.passwd
+	}).then(response => {
+		console.log(response);
+		return response;
+	}).catch(err => {
+		console.log(err);
 	});
 };
 

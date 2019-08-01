@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+input {
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	font-size: 14px;
+	font-family: "Nunito Sans";
+}
+
+.field {
+	display: inline-block;
+	font-size: 14px;
+	height: 30px;
+	margin: 15px auto;
+	width: 100%;
+}
+
+.login {
+	border-radius: 4px;
+	box-shadow: 0 0 3pt 2pt black;
+	margin: auto;
+	padding: 10px;
+	width: 40%;
+}
+
+.login-button {
+	display: block;
+	height: 20px;
+	margin: 30px auto;
+	width: 100%;
+}
+
+.login-submit {
+	margin: auto;
+	width: 100%;
+}
+
+.user-box {
+	height: 50%;
+	margin: auto;
+	width: 50%;
+}
+
+.user-fields {
+	width: 100%;
+	margin: auto;
+}

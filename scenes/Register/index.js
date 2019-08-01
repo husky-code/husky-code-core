@@ -1,5 +1,5 @@
 import React from 'react';
-import { login, register } from '../../services/api';
+import { register } from '../../services/api';
 import Store from '../../store';
 import './index.css';
 
