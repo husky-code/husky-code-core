@@ -23,7 +23,7 @@ export function register(credentials) {
 		passwd: credentials.passwd
 	}).then(response => {
 		console.log(response);
-		return response;
+		return response; // call to Store instead?
 	}).catch(err => {
 		console.log(err);
 	});
