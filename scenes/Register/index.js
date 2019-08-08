@@ -23,13 +23,18 @@ class Register extends React.Component {
 	onSubmit(e) {
 		e.preventDefault();
 		// TODO: route to home or through login when registered
-		register({
-			netid: this.state.netid,
-			firstname: this.state.firstname,
-			lastname: this.state.lastname,
-			class: this.state.class,
-			passwd: this.state.password
-		});
+		if (this.state.password !== this.state.confirmpassword) {
+			this.setState({errorMessage: 'Passwords do not match'});
+		} else {
+			this.setState({errorMessage: null});
+			register({
+				netid: this.state.netid,
+				firstname: this.state.firstname,
+				lastname: this.state.lastname,
+				class: this.state.class,
+				passwd: this.state.password
+			});
+		}
 	}
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});
