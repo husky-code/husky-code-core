@@ -1,6 +1,5 @@
 import React from 'react';
 import { login } from '../../services/api';
-import Store from '../../store';
 import './index.css';
 
 // TODO: convert to generic UserForm component with routing between login and register?
@@ -45,7 +44,7 @@ class Login extends React.Component {
 						{this.renderFormInput("text", "field", "NetID", "required")}
 						{this.renderFormInput("password", "field", "Password", "required")}
 					</div>
-					{this.state.errorMessage !== null ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null}
+					{this.state.errorMessage !== null ? <p className="error-message">{this.state.errorMessage}</p> : null}
 					<div className="login-submit">
 						<input type="submit" className="login-button" value="Submit" />
 					</div>

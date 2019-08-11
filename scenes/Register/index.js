@@ -1,6 +1,5 @@
 import React from 'react';
 import { register } from '../../services/api';
-import Store from '../../store';
 import './index.css';
 
 // TODO: convert to generic UserForm component with routing between login and register?
@@ -8,12 +7,12 @@ class Register extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
-			netid: '',
-			firstname: '',
-			lastname: '',
-			class: '',
-			password: '',
-			confirmpassword: '',
+			netid: null,
+			firstname: null,
+			lastname: null,
+			class: null,
+			password: null,
+			confirmpassword: null,
 			errorMessage: null
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -22,11 +21,12 @@ class Register extends React.Component {
 	}
 	onSubmit(e) {
 		e.preventDefault();
+		this.setState({errorMessage: null});
 		// TODO: route to home or through login when registered
 		if (this.state.password !== this.state.confirmpassword) {
 			this.setState({errorMessage: 'Passwords do not match'});
-		} else {
-			this.setState({errorMessage: null});
+		}
+		if (this.errorMessage === null) {
 			register({
 				netid: this.state.netid,
 				firstname: this.state.firstname,
@@ -61,7 +61,7 @@ class Register extends React.Component {
 						{this.renderFormInput("password", "field", "Password", "required")}
 						{this.renderFormInput("password", "field", "Confirm Password", "required")}
 					</div>
-					{this.state.errorMessage !== null ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null}
+					{this.state.errorMessage !== null ? <p className="error-message">{this.state.errorMessage}</p> : null}
 					<div className="login-submit">
 						<input type="submit" className="login-button" value="Create Account" />
 					</div>
