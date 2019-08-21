@@ -1,5 +1,5 @@
 import React from 'react';
-import { login } from '../../services/api';
+import { login } from '../../services/auth';
 import './index.css';
 
 // TODO: convert to generic UserForm component with routing between login and register?
