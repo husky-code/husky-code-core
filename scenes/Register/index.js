@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
+import LinkTo from '../../components/LinkTo';
 import { register } from '../../services/auth';
 import './index.css';
 
@@ -66,6 +68,7 @@ class Register extends React.Component {
 						<input type="submit" className="login-button" value="Create Account" />
 					</div>
 				</form>
+				<LinkTo to="/login" className="from-form" inner={<p>Already registered? Click <u>here</u> to login</p>} />
 			</div>
 		);
 	}
