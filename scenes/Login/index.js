@@ -1,4 +1,5 @@
 import React from 'react';
+import LinkTo from '../../components/LinkTo';
 import { login } from '../../services/auth';
 import './index.css';
 
@@ -49,6 +50,7 @@ class Login extends React.Component {
 						<input type="submit" className="login-button" value="Submit" />
 					</div>
 				</form>
+				<LinkTo to="/register" className="from-form" inner={<p>New user? Click <u>here</u> to register</p>} />
 			</div>
 		);
 	}

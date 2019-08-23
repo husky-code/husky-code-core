@@ -3,3 +3,8 @@
 	text-align: center;
 	text-decoration: none;
 }
+
+.inline-link:link, .inline-link:visited {
+	color: black;
+	display: inline;
+}
