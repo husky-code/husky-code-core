@@ -19,12 +19,18 @@ class App extends React.Component {
 	render() {
     	return (
         	<div className="layout">
-            	<Route exact={true} path="/" component={Question}/>
-            	<Route path="/discussion" component={Discussion}/>
-            	<Route path="/interviewprep" component={InterviewPrep}/>
-            	<Route path="/dashboard" component={Dashboard}/>
-            	<Route path="/login" component={Login}/>
-            	<Route path="/register" component={Register}/>
+            	<Route exact={true} path="/"
+            		render={(props) => <Question {...props} store={this.props.store}/>}/>
+            	<Route path="/discussion" 
+            		render={(props) => <Discussion {...props} store={this.props.store}/>}/>
+            	<Route path="/interviewprep" 
+            		render={(props) => <InterviewPrep {...props} store={this.props.store}/>}/>
+            	<Route path="/dashboard" 
+            		render={(props) => <Dashboard {...props} store={this.props.store}/>}/>
+            	<Route path="/login" 
+            		render={(props) => <Login {...props} store={this.props.store}/>}/>
+            	<Route path="/register" 
+            		render={(props) => <Register {...props} store={this.props.store}/>}/>
         	</div>
     	);
 	}
