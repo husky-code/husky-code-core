@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import LinkTo from '../../components/LinkTo';
-import { auth } from '../../services/auth';
+import authService from '../../services/auth';
 import './index.css';
 
 // TODO: convert to generic UserForm component with routing between login and register?
@@ -29,7 +29,7 @@ class Register extends React.Component {
 			this.setState({errorMessage: 'Passwords do not match'});
 		}
 		if (this.state.errorMessage === null) {
-			auth.register({
+			authService.register({
 				netid: this.state.netid,
 				firstname: this.state.firstname,
 				lastname: this.state.lastname,
