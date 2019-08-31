@@ -21,7 +21,7 @@ class Login extends React.Component {
 		this.setState({errorMessage: null});
 		// TODO: error handling?
 		// TODO: route to dashboard
-		if (this.state.errorMessage !== null) {
+		if (this.state.errorMessage === null) {
 			login({
 				netid: this.state.netid,
 				passwd: this.state.password
