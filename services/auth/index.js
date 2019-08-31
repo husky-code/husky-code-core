@@ -2,7 +2,7 @@ var request = require('request-promise');
 
 const URL = 'http://localhost:3000/auth';
 
-export function login(credentials) {
+function login(credentials) {
 	return new Promise((resolve, reject) => {
 		request.post(`${URL}/login`).form({
 			netid: credentials.netid,
@@ -15,7 +15,7 @@ export function login(credentials) {
 	});
 }
 
-export function register(credentials) {
+function register(credentials) {
 	return new Promise((resolve, reject) => {
 		request.post(`${URL}/register`).form({
 			netid: credentials.netid,
@@ -29,4 +29,9 @@ export function register(credentials) {
 			reject(err);
 		});
 	});
+};
+
+export const auth = {
+	login,
+	register
 };

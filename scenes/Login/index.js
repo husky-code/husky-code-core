@@ -1,6 +1,6 @@
 import React from 'react';
 import LinkTo from '../../components/LinkTo';
-import { login } from '../../services/auth';
+import { auth } from '../../services/auth';
 import './index.css';
 
 // TODO: convert to generic UserForm component with routing between login and register?
@@ -22,7 +22,7 @@ class Login extends React.Component {
 		// TODO: error handling?
 		// TODO: route to dashboard
 		if (this.state.errorMessage === null) {
-			login({
+			auth.login({
 				netid: this.state.netid,
 				passwd: this.state.password
 			}).then(res => {
