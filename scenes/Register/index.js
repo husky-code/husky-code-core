@@ -35,6 +35,9 @@ class Register extends React.Component {
 				lastname: this.state.lastname,
 				class: this.state.class,
 				passwd: this.state.password
+			}).then(res => {
+				// TODO: Store dispatch?
+				console.log(res);
 			});
 		}
 	}

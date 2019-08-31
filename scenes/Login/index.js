@@ -18,11 +18,18 @@ class Login extends React.Component {
 	}
 	onSubmit(e) {
 		e.preventDefault();
+		this.setState({errorMessage: null});
+		// TODO: error handling?
 		// TODO: route to dashboard
-		login({
-			netid: this.state.netid,
-			passwd: this.state.password
-		});
+		if (this.state.errorMessage !== null) {
+			login({
+				netid: this.state.netid,
+				passwd: this.state.password
+			}).then(res => {
+				// TODO: Store dispatch
+				console.log(res);
+			});
+		}
 	}
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});
