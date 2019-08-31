@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux'
 import Question from './scenes/Question';
 import Discussion from './scenes/Discussion';
 import InterviewPrep from './scenes/InterviewPrep';
@@ -10,27 +11,21 @@ import Register from './scenes/Register';
 import './index.css';
 
 class App extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			data: []
-		}
-	};
 	render() {
     	return (
         	<div className="layout">
             	<Route exact={true} path="/"
-            		render={(props) => <Question {...props} store={this.props.store}/>}/>
+            		render={(props) => <Question {...props} />}/>
             	<Route path="/discussion" 
-            		render={(props) => <Discussion {...props} store={this.props.store}/>}/>
+            		render={(props) => <Discussion {...props} />}/>
             	<Route path="/interviewprep" 
-            		render={(props) => <InterviewPrep {...props} store={this.props.store}/>}/>
+            		render={(props) => <InterviewPrep {...props} />}/>
             	<Route path="/dashboard" 
-            		render={(props) => <Dashboard {...props} store={this.props.store}/>}/>
+            		render={(props) => <Dashboard {...props} />}/>
             	<Route path="/login" 
-            		render={(props) => <Login {...props} store={this.props.store}/>}/>
+            		render={(props) => <Login {...props} />}/>
             	<Route path="/register" 
-            		render={(props) => <Register {...props} store={this.props.store}/>}/>
+            		render={(props) => <Register {...props} />}/>
         	</div>
     	);
 	}

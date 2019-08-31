@@ -11,7 +11,7 @@ let store = createStore(reducers);
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
-			<App store={store}/>
+			<App />
 		</BrowserRouter>
 	</Provider>
 , document.getElementById('root'));
