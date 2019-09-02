@@ -1,9 +1,31 @@
 import { combineReducers } from 'redux';
 
-function user(state, action) {
+// function user(state, action) {
+// 	switch (action.type) {
+// 		case 'register': {
+// 		
+// 		}
+// 		default: {
+// 			return state;
+// 		}
+// 	}
+// }
+// 
+// function users(state = [], action) {
+// 	return null;
+// }
+
+const initialState = {
+	token: null
+};
+
+function authReducer(state = initialState, action) {
 	switch (action.type) {
-		case 'register': {
-		
+		case 'SET_TOKEN': {
+			return {
+				...state,
+				token: action.token
+			};
 		}
 		default: {
 			return state;
@@ -11,12 +33,8 @@ function user(state, action) {
 	}
 }
 
-function users(state = [], action) {
-	return null;
-}
-
 const reducers = combineReducers({
-	users
+	authReducer
 });
 
 export default reducers;
