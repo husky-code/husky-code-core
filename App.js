@@ -6,6 +6,7 @@ import Question from './scenes/Question';
 import Discussion from './scenes/Discussion';
 import InterviewPrep from './scenes/InterviewPrep';
 import Dashboard from './scenes/Dashboard';
+import Problems from './scenes/Dashboard';
 import Login from './scenes/Login';
 import Register from './scenes/Register';
 import './index.css';
@@ -22,6 +23,8 @@ class App extends React.Component {
             		render={(props) => <InterviewPrep {...props} />}/>
             	<Route path="/dashboard" 
             		render={(props) => <Dashboard {...props} />}/>
+            	<Route path="/problems"
+            		render={(props) => <Problems {...props} />}/>
             	<Route path="/login" 
             		render={(props) => <Login {...props} />}/>
             	<Route path="/register" 

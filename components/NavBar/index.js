@@ -21,14 +21,14 @@ class NavBar extends React.Component {
 			<div className="header navbar-container">
 				<div className="navbar-left-container">
 					{this.renderNavImg("./images/husky_code_icon.JPG")}
-					{this.renderNavHeader("Husky Code")}
+					<LinkTo to="/" className="inline-link" inner={this.renderNavHeader("Husky Code")} />
 				</div>
 				<div className="navbar-right-container">
 					{this.renderNavImg("./images/user_icon_template.JPG")}
 					<LinkTo to="/dashboard" className="inline-link" inner={this.renderNavItem("Dashboard")} />
 					<LinkTo to="/interviewprep" className="inline-link" inner={this.renderNavItem("Interview Prep")} />
 					<LinkTo to="/discussion" className="inline-link" inner={this.renderNavItem("Discussion")} />
-					<LinkTo to="/" className="inline-link" inner={this.renderNavItem("Problems")} />
+					<LinkTo to="/problems" className="inline-link" inner={this.renderNavItem("Problems")} />
 				</div>
 			</div>
 		);
