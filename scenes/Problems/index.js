@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
+import ProblemList from './components/ProblemList';
+import './index.css';
 
 class Problems extends React.Component {
 	constructor(props) {
@@ -20,6 +22,7 @@ class Problems extends React.Component {
 			<div className="select-bar-container">
 				<NavBar/>
 			</div>
+			<ProblemList/>
 		);
 	}
 }
