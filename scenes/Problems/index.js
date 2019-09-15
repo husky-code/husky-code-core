@@ -19,10 +19,12 @@ class Problems extends React.Component {
 	}
 	render() {
 		return (
-			<div className="select-bar-container">
-				<NavBar/>
+			<div>
+				<div className="select-bar-container">
+					<NavBar/>
+				</div>
+				<ProblemList/>
 			</div>
-			<ProblemList/>
 		);
 	}
 }

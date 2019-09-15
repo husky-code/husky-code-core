@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 class LinkTo extends React.Component {
@@ -14,7 +14,7 @@ class LinkTo extends React.Component {
 }
 
 LinkTo.propTypes = {
-	to: PropTypes.string,
+	to: PropTypes.string.isRequired,
 	className: PropTypes.string.isRequired,
 	inner: PropTypes.node.isRequired
 }

@@ -6,7 +6,7 @@ import Question from './scenes/Question';
 import Discussion from './scenes/Discussion';
 import InterviewPrep from './scenes/InterviewPrep';
 import Dashboard from './scenes/Dashboard';
-import Problems from './scenes/Dashboard';
+import Problems from './scenes/Problems';
 import Login from './scenes/Login';
 import Register from './scenes/Register';
 import './index.css';
