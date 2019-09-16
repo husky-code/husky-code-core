@@ -6,19 +6,7 @@ class ProblemList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// TODO: replace with API call
-			problems: [
-				{
-					name: 'favoriteLetter',
-					topic: 'Method basics',
-					lang: 'Java'
-				},
-				{
-					name: 'pairSums',
-					topic: 'Hashing',
-					lang: 'Java'
-				}
-			]
+			problems: this.props.problems
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.renderProblems = this.renderProblems.bind(this);
@@ -27,8 +15,7 @@ class ProblemList extends React.Component {
 		this.setState({[e.target.name]: e.target.value});
 	}
 	renderProblems() {
-		const problems = this.state.problems;
-		return problems.map((problem) => 
+		return this.state.problems.map((problem) => 
 			<ListItem className="problem-list-container" data={problem} linkable={true} to="/"/>
 		);
 	}

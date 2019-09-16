@@ -7,10 +7,27 @@ class Problems extends React.Component {
 	constructor(props) {
 		super(props);
 		// TODO: add to Redux store?
+		// TODO: API call to database to get data for state
 		this.state = {
-			course: '',
-			categories: [],
-			problems: []
+			course: 'CSE 373',
+			categories: ['Method basics', 'Hashing'],
+			problems: [
+				{
+					name: 'favoriteLetter',
+					topic: 'Method basics',
+					lang: 'Java'
+				},
+				{
+					name: 'pairSums',
+					topic: 'Hashing',
+					lang: 'Java'
+				},
+				{
+					name: 'writeHelloWorld',
+					topic: 'Method basics',
+					lang: 'Java'
+				}
+			]
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -23,7 +40,7 @@ class Problems extends React.Component {
 				<div className="select-bar-container">
 					<NavBar/>
 				</div>
-				<ProblemList/>
+				<ProblemList problems={this.state.problems}/>
 			</div>
 		);
 	}

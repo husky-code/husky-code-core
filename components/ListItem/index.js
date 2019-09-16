@@ -13,7 +13,7 @@ class ListItem extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 	componentDidMount() {
-		// TODO: generic data to JSX rendering
+		// TODO: display all available data per list item in one line
 		this.setState({inner: <p>{this.state.data.name}</p>});
 	}
 	handleChange(e) {
@@ -21,10 +21,7 @@ class ListItem extends React.Component {
 	}
 	render() {
 		return (
-			<div>
-				<p>{this.props.linkable}</p>
-				{<LinkTo className={this.props.className} to={this.props.to} inner={this.state.inner}/>}
-			</div>
+			<LinkTo className={this.props.className} to={this.props.to} inner={this.state.inner}/>
 		);
 	}
 }
