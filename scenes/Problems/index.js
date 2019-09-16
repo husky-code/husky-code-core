@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
 import ProblemList from './components/ProblemList';
+import TopicList from './components/TopicList';
 import './index.css';
 
 class Problems extends React.Component {
@@ -40,6 +41,7 @@ class Problems extends React.Component {
 				<div className="select-bar-container">
 					<NavBar/>
 				</div>
+				<TopicList/>
 				<ProblemList problems={this.state.problems}/>
 			</div>
 		);
