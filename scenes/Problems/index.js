@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../../components/NavBar';
 import ProblemList from './components/ProblemList';
 import TopicList from './components/TopicList';
+import problemService from '../../services/problems';
 import './index.css';
 
 class Problems extends React.Component {
@@ -11,7 +12,7 @@ class Problems extends React.Component {
 		// TODO: API call to database to get data for state
 		this.state = {
 			course: 'CSE 373',
-			categories: ['Method basics', 'Hashing'],
+			topics: [],
 			problems: [
 				{
 					name: 'favoriteLetter',
@@ -31,6 +32,13 @@ class Problems extends React.Component {
 			]
 		};
 		this.handleChange = this.handleChange.bind(this);
+	}
+	// TODO: move logic to option select
+	componentDidMount() {
+		problemService.getTopics(this.state.course).then(res => {
+			console.dir(res);
+			this.setState({topics: res.topics});
+		});
 	}
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});
