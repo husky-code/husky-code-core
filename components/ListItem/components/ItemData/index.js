@@ -6,14 +6,17 @@ class ItemData extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	// TODO: formatting, CSS styling
 	render() {
 		return (
 			<div className="item">
-				<span className="data-field primary-field">{this.props.data[this.props.primaryField]}</span>
+				<div className="data-field primary-field">
+					<span>{this.props.data[this.props.primaryField]}</span>
+				</div>
 				{Object.keys(this.props.data).map((field) => 
 					field !== this.props.primaryField ?
-						<span className="data-field">{this.props.data[field]}</span> : null
+						<div className="data-field">
+							<span>{this.props.data[field]}</span>
+						</div> : null
 				)}
 			</div>
 		);

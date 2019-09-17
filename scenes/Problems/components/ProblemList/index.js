@@ -15,9 +15,9 @@ class ProblemList extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="problem-list-container">
 				{this.state.problems.map((problem) => 
-					<ListItem className="problem-list-container" data={problem} linkable={true} to="/"/>
+					<ListItem className="problem-listitem" data={problem} linkable={true} to="/"/>
 				)}
 			</div>
 		);
