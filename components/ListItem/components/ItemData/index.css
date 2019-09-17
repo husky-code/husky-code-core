@@ -1,0 +1,16 @@
+.data-field {
+	display: inline;
+	margin: 10px 10%;
+	width: 30%;
+}
+
+.item {
+	margin: 15px 0;
+	width: 100%;
+}
+
+.primary-field {
+	display: inline;
+	margin: 20px 10%;
+	width: 50%;
+}

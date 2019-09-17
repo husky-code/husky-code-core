@@ -1,6 +1,7 @@
 import React from 'React';
 import PropTypes from 'prop-types';
 import LinkTo from '../LinkTo';
+import ItemData from './components/ItemData';
 import './index.css';
 
 class ListItem extends React.Component {
@@ -13,8 +14,8 @@ class ListItem extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 	componentDidMount() {
-		// TODO: display all available data per list item in one line
-		this.setState({inner: <p>{this.state.data.name}</p>});
+		//this.setState({inner: <p>{this.state.data.name}</p>});
+		this.setState({inner: <ItemData data={this.props.data} primaryField="name"/>});
 	}
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});

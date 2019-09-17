@@ -9,20 +9,16 @@ class ProblemList extends React.Component {
 			problems: this.props.problems
 		};
 		this.handleChange = this.handleChange.bind(this);
-		this.renderProblems = this.renderProblems.bind(this);
 	}
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});
 	}
-	renderProblems() {
-		return this.state.problems.map((problem) => 
-			<ListItem className="problem-list-container" data={problem} linkable={true} to="/"/>
-		);
-	}
 	render() {
 		return (
 			<div>
-				{this.renderProblems()}
+				{this.state.problems.map((problem) => 
+					<ListItem className="problem-list-container" data={problem} linkable={true} to="/"/>
+				)}
 			</div>
 		);
 	}
