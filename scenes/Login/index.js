@@ -27,7 +27,7 @@ class Login extends React.Component {
 				passwd: this.state.password
 			}).then(res => {
 				// TODO: Store dispatch
-				console.log(res);
+				console.log(JSON.parse(res));
 			});
 		}
 	}

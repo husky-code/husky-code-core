@@ -12,7 +12,7 @@ class Problems extends React.Component {
 		// TODO: API call to database to get data for state
 		this.state = {
 			course: 'CSE 373',
-			topics: ['Method basics', 'Hashing'],
+			topics: [],
 			problems: [
 				{
 					name: 'favoriteLetter',
@@ -33,17 +33,21 @@ class Problems extends React.Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
+	componentDidMount() {
+		// Temporary (for dev purposes)
+		problemService.getTopics(this.state.course).then(res => {
+			console.dir(res);
+			this.setState({topics: JSON.parse(res).topics});
+		});
+	}
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});
 		if (e.target.name === 'course') {
-			getTopics();
+			problemService.getTopics(this.state.course).then(res => {
+				console.dir(res);
+				this.setState({topics: JSON.parse(res).topics});
+			});
 		}
-	}
-	getTopics() {
-		problemService.getTopics(this.state.course).then(res => {
-			console.dir(res);
-			this.setState({topics: res.topics});
-		});
 	}
 	render() {
 		return (
