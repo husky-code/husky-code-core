@@ -12,7 +12,7 @@ class Problems extends React.Component {
 		// TODO: API call to database to get data for state
 		this.state = {
 			course: 'CSE 373',
-			topics: [],
+			currTopic: '',
 			problems: [
 				{
 					name: 'favoriteLetter',
@@ -29,33 +29,39 @@ class Problems extends React.Component {
 					topic: 'Method basics',
 					lang: 'Java'
 				}
-			]
+			],
+			topics: []
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
 	componentDidMount() {
 		// Temporary (for dev purposes)
 		problemService.getTopics(this.state.course).then(res => {
-			console.dir(res);
-			this.setState({topics: JSON.parse(res).topics});
+			this.setState({topics: res.topics});
 		});
 	}
 	handleChange(e) {
 		this.setState({[e.target.name]: e.target.value});
-		if (e.target.name === 'course') {
-			problemService.getTopics(this.state.course).then(res => {
-				console.dir(res);
-				this.setState({topics: JSON.parse(res).topics});
-			});
+		switch (e.target.name) {
+			case 'course': {
+				problemService.getTopics(this.state.course).then(res => {
+					this.setState({topics: res.topics});
+				});
+			}
+			case 'currTopic': {
+				problemService.getProblems(this.state.course, this.state.currTopic).then(res => {
+					this.setState({problems: res.problems});
+				});
+			}
 		}
 	}
 	render() {
 		return (
-			<div>
+			<div className="problems-container">
 				<div className="select-bar-container">
 					<NavBar/>
 				</div>
-				<TopicList/>
+				<TopicList topics={this.state.topics}/>
 				<ProblemList problems={this.state.problems}/>
 			</div>
 		);

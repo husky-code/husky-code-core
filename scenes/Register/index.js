@@ -37,7 +37,7 @@ class Register extends React.Component {
 				passwd: this.state.password
 			}).then(res => {
 				// TODO: Store dispatch?
-				console.log(JSON.parse(res));
+				console.log(res);
 			});
 		}
 	}

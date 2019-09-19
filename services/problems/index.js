@@ -6,7 +6,7 @@ const problemService = {
 	getTopics: (course) => {
 		return new Promise((resolve, reject) => {
 			request.get(`${URL}/${course}`).then(response => {
-				resolve(response);
+				resolve(JSON.parse(response));
 			}).catch(err => {
 				reject(err);
 			});
@@ -15,7 +15,7 @@ const problemService = {
 	getProblems: (course, topic) => {
 		return new Promise((resolve, reject) => {
 			request.get(`${URL}/${course}/${topic}`).then(response => {
-				resolve(response);
+				resolve(JSON.parse(response));
 			}).catch(err => {
 				reject(err);
 			});

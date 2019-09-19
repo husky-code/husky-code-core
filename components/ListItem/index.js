@@ -14,7 +14,6 @@ class ListItem extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 	componentDidMount() {
-		//this.setState({inner: <p>{this.state.data.name}</p>});
 		this.setState({inner: <ItemData data={this.props.data} primaryField="name"/>});
 	}
 	handleChange(e) {
@@ -29,7 +28,10 @@ class ListItem extends React.Component {
 
 ListItem.propTypes = {
 	className: PropTypes.string.isRequired,
-	data: PropTypes.object.isRequired,
+	data: PropTypes.oneOfType([
+		PropTypes.node,
+		PropTypes.object
+	]).isRequired,
 	linkable: PropTypes.bool.isRequired,
 	to: PropTypes.string.isRequired,
 }

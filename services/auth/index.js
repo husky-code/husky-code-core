@@ -9,7 +9,7 @@ const authService = {
 				netid: credentials.netid,
 				passwd: credentials.passwd
 			}).then(response => {
-				resolve(response);
+				resolve(JSON.parse(response));
 			}).catch(err => {
 				reject(err);
 			});
@@ -24,7 +24,7 @@ const authService = {
 				class: credentials.class,
 				passwd: credentials.passwd
 			}).then(response => {
-				resolve(response);
+				resolve(JSON.parse(response));
 			}).catch(err => {
 				reject(err);
 			});
