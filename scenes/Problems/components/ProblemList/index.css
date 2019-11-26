@@ -1,0 +1,9 @@
+.problem-list-container {
+	margin: 10px 0;
+}
+
+.problem-listitem, .problem-listitem:visited {
+	border-bottom: 1px solid gray;
+	color: black;
+	text-decoration: none;
+}

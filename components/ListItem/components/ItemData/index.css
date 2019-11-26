@@ -1,0 +1,17 @@
+.data-field {
+	display: inline-block;
+	margin: 10px 0;
+	width: 10%;
+}
+
+.item {
+	margin: 10px 0 10px 2%;
+	overflow: hidden;
+	width: 100%;
+}
+
+.primary-field {
+	display: inline-block;
+	margin: 10px 20% 10px 0;
+	width: 60%;
+}

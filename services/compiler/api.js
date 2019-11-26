@@ -1,12 +1,12 @@
 // Call to JDoodle API, licensed by Nutpan.com
 var request = require('request');
-//var router = express.Router();
 var wrapper = require('./wrapper');
 
+// Test code
 var code = "public void printMessage(String str) { System.out.println(str); }"
 
 var client = {
-    script: wrapper.wrapScript("System.out.println(\"Hello World\");", "java"),
+    script: wrapper.wrapScript("System.out.println(\"Hello World\");", "java"), // Test code
     stdin: "Hello World!",
     language: "java",
     versionIndex: "0",
