@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.2",
+    "async": "^3.2.2",
     "fs-es6": "0.0.2",
     "fstream": "^1.0.12",
     "i": "^0.3.6",
