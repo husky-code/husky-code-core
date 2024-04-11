@@ -34,7 +34,7 @@
     "redux": "^4.0.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "tar": "^4.4.10",
+    "tar": "^6.2.1",
     "tls": "0.0.1",
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
